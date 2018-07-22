@@ -1,5 +1,5 @@
-import * as schema from "./schema"
-import  {userInterface}  from "./interface";
+import * as schema from "../repository/users/schema"
+import  {userInterface}  from "../repository/users/interface";
 
 class data {
     constructor(){
@@ -33,8 +33,4 @@ class data {
 
 let User =  new data()
 
-// User.createUser({username:'aaaa'},function (e,a) {
-//     console.log(e,a)
-//
-// })
 export {User}
