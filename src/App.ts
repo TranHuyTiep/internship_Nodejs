@@ -2,6 +2,8 @@ import * as express from 'express'
 import * as path from 'path'
 import * as bodyParser from 'body-parser'
 import * as http from 'http'
+import * as Mongoose from "mongoose";
+let config = require('../config.json');
 
 class App{
 
@@ -10,7 +12,8 @@ class App{
     constructor(){
         this.express = express();
         this.middleware();
-        this.router()
+        this.router();
+        this.config();
     };
 
     private middleware(): void{
@@ -19,11 +22,18 @@ class App{
         this.express.set("views", path.join(__dirname, "../views"));
         this.express.set("view engine", "ejs");
         this.express.use(express.static(path.join(__dirname, '../public')));
+    };
+
+    private config():void{
+        Mongoose.connect(config.db.url,{useNewUrlParser: true});
+        Mongoose.connection.once('open', () => {
+            console.log('Db connect')
+         })
     }
 
     private router(): void{
 
-    }
+    };
 }
 
 function normalizePort(val: number|string): number|string|boolean {

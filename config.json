@@ -1,9 +1,10 @@
 {
     "db" : {
-        "host"     : "localhost",
-        "user"     : "root",
-        "password" : "",
-        "database" : "intership",
-        "connectionLimit" : 10
+        "url"     : "mongodb://127.0.0.1:27017/internship",
+        "options" : {
+            "useMongoClient": true,
+            "poolSize": 10,
+            "autoReconnect": true
+        }
     }
 }
