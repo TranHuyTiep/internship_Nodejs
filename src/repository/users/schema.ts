@@ -66,5 +66,5 @@ class user {
 
 }
 
-var schema = Mongoose.model("users", user.schema);
+var schema = Mongoose.model("user", user.schema);
 export = schema;

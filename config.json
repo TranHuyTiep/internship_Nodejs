@@ -1,10 +1,23 @@
 {
     "db" : {
-        "url"     : "mongodb://127.0.0.1:27017/internship",
-        "options" : {
-            "useMongoClient": true,
-            "poolSize": 10,
-            "autoReconnect": true
+        "mongodb": {
+            "url"     : "mongodb://127.0.0.1:27017/internship",
+            "options" : {
+                "useNewUrlParser": true,
+                "poolSize": 10,
+                "autoReconnect": true
+            }
+        },
+        "mysql": {
+            "host"     : "localhost",
+            "user"     : "root",
+            "password" : "",
+            "database" : "internship",
+            "connectionLimit" : 10
         }
+    },
+    "hash":{
+        "name": "sha256",
+        "size": "256"
     }
 }

@@ -2,8 +2,14 @@ import * as express from 'express'
 import * as path from 'path'
 import * as bodyParser from 'body-parser'
 import * as http from 'http'
-import * as Mongoose from "mongoose";
+import * as Mongoose from "mongoose"
+import * as session from 'express-session'
+import * as passport from 'passport'
+
+
 let config = require('../config.json');
+
+import {RouterAuthen} from "./routes/authen"
 
 class App{
 
@@ -22,22 +28,32 @@ class App{
         this.express.set("views", path.join(__dirname, "../views"));
         this.express.set("view engine", "ejs");
         this.express.use(express.static(path.join(__dirname, '../public')));
+        this.express.use(session({
+            secret: 'keyboard cat',
+            resave: false,
+            saveUninitialized: true,
+            cookie: { secure: true }
+        }));
+
     };
 
     private config():void{
-        Mongoose.connect(config.db.url,{useNewUrlParser: true});
+        this.express.use(passport.initialize());
+        this.express.use(passport.session());
+
+        Mongoose.connect(config.db.mongodb.url,config.db.mongodb.options);
         Mongoose.connection.once('open', () => {
-            console.log('Db connect')
-         })
+            console.log('MongoDb connected');
+         });
     }
 
     private router(): void{
+        this.express.use('/api/v1/', RouterAuthen);
 
     };
 }
 
 function normalizePort(val: number|string): number|string|boolean {
-
     let port: number = (typeof val === 'string') ? parseInt(val, 10) : val;
 
     if (isNaN(port)) return val;
