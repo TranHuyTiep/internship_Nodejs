@@ -19,5 +19,15 @@
     "hash":{
         "name": "sha256",
         "size": "256"
+    },
+    "role": ["User","Admin"],
+    "sessionOption":{
+        "secret":"123456",
+        "resave": false,
+        "saveUninitialized": true,
+        "cookie":{
+           "secure": true
+        }
     }
+
 }

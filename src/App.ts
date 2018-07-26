@@ -28,12 +28,7 @@ class App{
         this.express.set("views", path.join(__dirname, "../views"));
         this.express.set("view engine", "ejs");
         this.express.use(express.static(path.join(__dirname, '../public')));
-        this.express.use(session({
-            secret: 'keyboard cat',
-            resave: false,
-            saveUninitialized: true,
-            cookie: { secure: true }
-        }));
+        this.express.use(session(config.sessionOption));
 
     };
 
