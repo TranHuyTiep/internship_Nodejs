@@ -1,7 +1,7 @@
 import * as mysql from "mysql";
 let config = require('../../config.json');
 
-class connectMysql {
+ export class connectMysql {
     pool : mysql.Pool;
 
     constructor(){
@@ -33,7 +33,7 @@ class connectMysql {
      * @param data
      * @returns {Promise<object>}
      */
-    public querySql(sql: string, data ?: any) : Promise<object>{
+    public query(sql: string, data ?: any) : Promise<object>{
         const promise = new Promise(((resolve, reject) =>  {
             this.getConnect()
                 .then(function (connection: any) {
@@ -55,6 +55,3 @@ class connectMysql {
         return promise;
     };
 };
-
-const ConnectMysql = new connectMysql();
-export {ConnectMysql}

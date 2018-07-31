@@ -1,7 +1,7 @@
 {
     "db" : {
         "mongodb": {
-            "url"     : "mongodb://127.0.0.1:27017/internship",
+            "url"     : "mongodb://127.0.0.1:27017/internship_nodejs",
             "options" : {
                 "useNewUrlParser": true,
                 "poolSize": 10,
@@ -12,7 +12,7 @@
             "host"     : "localhost",
             "user"     : "root",
             "password" : "",
-            "database" : "internship",
+            "database" : "internship_nodejs",
             "connectionLimit" : 10
         }
     },
@@ -24,9 +24,13 @@
     "sessionOption":{
         "secret":"123456",
         "resave": false,
-        "saveUninitialized": true,
-        "cookie":{
-           "secure": true
+        "saveUninitialized": true
+    },
+    "email":{
+        "service": "gmail",
+        "auth": {
+            "user": "huytiep1995@gmail.com",
+            "pass": "huytiep2521995"
         }
     }
 

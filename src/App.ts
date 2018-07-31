@@ -6,10 +6,10 @@ import * as Mongoose from "mongoose"
 import * as session from 'express-session'
 import * as passport from 'passport'
 
-
 let config = require('../config.json');
 
-import {RouterAuthen} from "./routes/authen"
+import {Authen} from "./config/passport"
+import {routerSilde} from "./routes/slide"
 
 class App{
 
@@ -18,8 +18,9 @@ class App{
     constructor(){
         this.express = express();
         this.middleware();
-        this.router();
         this.config();
+        this.router();
+        Authen;
     };
 
     private middleware(): void{
@@ -43,7 +44,7 @@ class App{
     }
 
     private router(): void{
-        this.express.use('/api/v1/', RouterAuthen);
+        this.express.use('/ShopOpen/v1/', routerSilde);
 
     };
 }

@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/knex": "^0.14.17",
     "@types/mysql": "^2.15.5",
     "@types/passport": "^0.4.6",
     "@types/passport-local": "^1.0.33",
@@ -23,10 +24,12 @@
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "express-validator": "^5.2.0",
+    "knex": "^0.15.2",
     "mocha": "^5.2.0",
     "mongoose": "^5.2.4",
     "morgan": "^1.9.0",
     "mysql": "^2.16.0",
+    "nodemailer": "^4.6.7",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "serve-favicon": "^2.5.0",
@@ -44,6 +47,7 @@
     "@types/mocha": "^5.2.4",
     "@types/mongoose": "^5.2.1",
     "@types/morgan": "^1.7.35",
+    "@types/nodemailer": "^4.6.2",
     "@types/sinon": "^5.0.1"
   }
 }

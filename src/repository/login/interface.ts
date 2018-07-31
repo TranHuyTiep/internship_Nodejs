@@ -1,13 +1,9 @@
-import mongoose = require("mongoose");
-
-export interface userInterface extends mongoose.Document{
-    userId: mongoose.Types.ObjectId,
+export interface userInterface{
+    login_id: number,
     password : string,
-    friendName: string,
     email : string,
     userName : string,
-    active : string,
-    verifyCode : string,
+    role_id : number,
     role : string,
     createdAt : Date,
 }
