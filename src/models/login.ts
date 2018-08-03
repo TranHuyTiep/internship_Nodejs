@@ -1,4 +1,5 @@
 import {QueryMysql} from "./models"
+import {userInterface} from "../repository/interface";
 
 export class UserModel extends QueryMysql{
     constructor(table: string){
@@ -10,10 +11,13 @@ export class UserModel extends QueryMysql{
      * @param {string} condition
      * @returns {Promise<any>}
      */
-    public getUser(condition ?: string) : Promise<any>{
-       let users = super.getData(condition)
-
-        return users;
+    public async getUser(condition ?: string) : Promise<Array<userInterface>>{
+        try {
+            let users = await super.getData(condition)
+            return users;
+        }catch (e) {
+            throw (e)
+        }
     };
 
     /**

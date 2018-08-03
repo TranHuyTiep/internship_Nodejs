@@ -7,6 +7,8 @@
 import {Router} from "express";
 import {home} from "../controllers/home";
 import {authen} from '../controllers/authen';
+import {user} from '../controllers/user';
+import {isUserLogin} from "../helps/help"
 
 class RouterSilde {
     public router : Router;
@@ -23,8 +25,17 @@ class RouterSilde {
         this.router.route('/user/sign-up')
             .post(authen.signUp);
 
+        this.router.route('/user/sign-in')
+            .get(isUserLogin, user.loadUserSignIn)
+            .post(authen.signIn);
+        this.router.route('/user/sign-in/facebook')
+            .get(isUserLogin, authen.signInFaceBook);
+
+        this.router.route('/user/sign-out')
+            .get( authen.signOut);
+
         this.router.route('/user/verify/:verifyCode')
-            .get(authen.verify);
+            .get(isUserLogin, authen.verify);
 
     }
 }

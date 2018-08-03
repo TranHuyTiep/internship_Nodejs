@@ -7,6 +7,7 @@
 
 import * as Passport from 'passport'
 import {Strategy} from 'passport-local'
+import {Strategy as FaceStrategy} from 'passport-facebook'
 import {Request, Response, Router} from 'express'
 import {userModel} from '../models/login'
 import {verifyModel} from '../models/verify'
@@ -14,6 +15,7 @@ import {cryptoHelper} from '../helps/encryto'
 import {sendMail} from '../helps/sendMail'
 import * as Hepler from '../helps/help'
 import * as crypto from 'crypto'
+import {userInterface} from '../repository/interface'
 
 
 class passport {
@@ -21,17 +23,17 @@ class passport {
     constructor(){
         this.passport = Passport;
         this.init();
-
     };
 
     private init(){
         this.passport.serializeUser((userId: any, done: any) => {
+            let conditionGetUser = `login_id = '${userId}'`;
+            userModel.getUser(conditionGetUser)
             done(undefined, userId);
         });
 
         this.passport.deserializeUser(function(userId: any, done: any) {
             let conditionGetUser = `login_id = '${userId}'`;
-
             userModel.getUser(conditionGetUser)
                 .then(function (user) {
                     done(undefined, user[0]);
@@ -41,62 +43,52 @@ class passport {
                 });
         });
 
-       this.passport.use('signUp', new Strategy({
-               usernameField: 'email',
-               passwordField: 'newPassword',
-               passReqToCallback: true
-           },
-           async function(req: Request, email: string , password: string, done) {
-                let data = req.body;
-                let date = new Date();
-                let conditionGetUser = `email = '${email}'`;
-                let user = await userModel.getUser(conditionGetUser);
-                if(user.length == 0 ){
-                    let hashPassword = cryptoHelper.createPassword(password);
-                    let userInsert = {
-                        email: email,
-                        password: hashPassword,
-                        username: data.username,
-                        active: false,
-                        role_id: 2,
-                        createAt: date,
-                        createBy: email,
-                    };
-                    let loginId = ((await userModel.insertUser(userInsert)).insertId);
-                    let salt = crypto.randomBytes(32).toString();
-                    let active = cryptoHelper.createPassword(hashPassword+salt);
-                    let verifyInsert = {
-                        login_id: loginId,
-                        verify_code: active,
-                        createAt: date
-                    };
-
-                    verifyModel.insertData(verifyInsert)
-                        .then(function (result) {
-                            let text = `Vui lòng click vào link sau để xác nhận tài khoản! \n
-                                        Url: ${Hepler.getFullUrl(req, `user/verify/${active}`)}`;
-                            let subjext = `Email xác nhận tài khoản`;
-                            sendMail(email, text, subjext, function () {});
-                            return done(null, loginId);
-                        })
-                        .catch(function (reject) {
-                            return done(true);
-                        })
-                }else {
-                    return done(true);
-                };
-           })
-       );
-
-       this.passport.use('signIn', new Strategy({
+        this.passport.use('signIn', new Strategy({
                usernameField: 'email',
                passwordField: 'password',
                passReqToCallback: true
            },
-           function(req: Request, username, password, done) {
-
+           async function(req: Request, email, password, done) {
+               let conditionGetUser: string = `email = '${email}'`;
+               let user: Array<userInterface> = await userModel.getUser(conditionGetUser);
+               if(user.length > 0 && user[0].active == true && cryptoHelper.validatePassword(password, user[0].password) ){
+                   return done(null, user[0].login_id);
+               }else {
+                   return done(true);
+               };
            })
-       );
+        );
+
+        this.passport.use('signInFaceBook', new FaceStrategy({
+                clientID: '521310484981055',
+                clientSecret: '57ec8b3c1bd1378522f5eba1d4f493dc',
+                callbackURL: "http://localhost:3000/user/sign-in/facebook",
+                passReqToCallback: true
+            },
+            async function(req: Request, accessToken: string, refreshToken: string, profile: any, done: any) {
+                try {
+                    let conditionGetUser: string = `oauth_id = '${profile.id}'`;
+                    let user: Array<userInterface> = await userModel.getUser(conditionGetUser);
+                    
+                    if(user.length > 0 ){
+                        done(null, user[0].login_id);
+                    }else {
+                        let userInsert: Partial<userInterface> = {
+                            username: profile.displayName,
+                            active: true,
+                            oauth_id: profile.id,
+                            role_id: 2,
+                            createBy: profile.id,
+                        };
+                        let loginId = ((await userModel.insertUser(userInsert)).insertId);
+                        return done(null, loginId);
+                    };
+                }catch (e) {
+                    console.error(e)
+                    return done(true);
+                }
+            })
+        );
     };
 };
 

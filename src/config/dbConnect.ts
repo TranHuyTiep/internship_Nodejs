@@ -12,7 +12,7 @@ let config = require('../../config.json');
      * get connection
      * @returns {Promise<object>}
      */
-    public getConnect(): Promise<object> {
+    public getConnect(): Promise<any> {
         const promise = new Promise((resolve, reject) => {
             this.pool.getConnection(function (err, connection) {
                 if (err){
@@ -33,11 +33,11 @@ let config = require('../../config.json');
      * @param data
      * @returns {Promise<object>}
      */
-    public query(sql: string, data ?: any) : Promise<object>{
+    public query(sql: string, data ?: object|Array<object> ) : Promise<any>{
         const promise = new Promise(((resolve, reject) =>  {
             this.getConnect()
                 .then(function (connection: any) {
-                    connection.query(sql,data, function (error:Error, results:any) {
+                    connection.query(sql,data, function (error: Error, results: Array<object>) {
                         if (error){
                             connection.destroy();
                             reject(error);

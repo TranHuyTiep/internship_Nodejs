@@ -99,6 +99,9 @@ user
   text-decoration: none;
     cursor: pointer
 }
+.user .dropdown-menu{
+    top: 70%;
+}
 
 /**
 duong ke

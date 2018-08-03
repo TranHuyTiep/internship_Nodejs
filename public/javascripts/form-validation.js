@@ -36,4 +36,25 @@ $(function() {
             form.submit();
         }
     });
+
+    $('#form-dang-nhap').validate({
+        rules: {
+            email: {
+                required: true,
+                email: true
+            },
+            password: {
+                required: true,
+            },
+        },
+        messages: {
+            email: {
+                required: "Nhập email",
+                email: "Kiểm tra lại email"
+            },
+            password: {
+                required: "Nhập password",
+            },
+        }
+    })
 });

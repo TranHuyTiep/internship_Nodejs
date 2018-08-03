@@ -3,11 +3,13 @@
         <div id="serch" >
             <div class="container container-serch">
                 <div class="row">
-                    <div class="col-xs-2 col-md-2 img-logo" style=" margin-right: -11px;">
-                        <div class="col-xs-3 col-md-6 img">
-                            <img class="img-circle img-responsive" src="/images/logoShop.jpg" style="width: 60px">
+                    <a href="/">
+                        <div class="col-xs-2 col-md-2 img-logo"  style=" margin-right: -11px;">
+                            <div class="col-xs-3 col-md-6 img" >
+                                <img class="img-circle img-responsive"  src="/images/logoShop.jpg" style="width: 60px">
+                            </div>
                         </div>
-                    </div>
+                    </a>
                     <div class="col-xs-6 col-md-6 form-search">
                         <div class="input-group" id="adv-search">
                             <input type="text" class="form-control" placeholder="Tìm kiếm" />
@@ -25,10 +27,20 @@
                             <i class="fa fa-shopping-cart" aria-hidden="true" data-toggle="modal" data-target="#modal-cart"></i>
                         </div>
                         <div class="col-xs-6 col-md-6 col-md-push-3 user text-right">
-                            <ul class="list-inline">
+                            <ul class="list-inline title-user-dnhap">
                                 <i class="fa fa-sign-in"></i>
                                 <li class="dang-nhap" data-toggle="modal" data-target="#modal-dang-nhap"><a type="button" >Đăng Nhập</a></li>
-                                <!--<li class="dang-ky" data-toggle="modal" data-target="#modal-dang-ky"><a href="#" >Đăng Ký</a></li>-->
+                            </ul>
+
+                            <ul class="list-inline user-infor" hidden>
+                                <li>
+                                    <img class="img-circle dropdown-toggle img-responsive" data-toggle="dropdown" src="/images/user.png" style="width: 30px">
+                                    <ul class="dropdown-menu text-left">
+                                        <li><a href="/user/profile/order">Đơn Hàng</a></li>
+                                        <li><a href="/user/profile/infor">Thông tin cá nhân</a></li>
+                                        <li><a href="/user/sign-out">Logn Out</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -46,6 +58,7 @@
             </div>
         </div>
     </div>
+
     <div class="modal fade" id="modal-dang-nhap" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content modal-dang-nhap" >
@@ -60,15 +73,21 @@
                 <div class="modal-body">
                     <div class="container-fluid">
                         <div class="row">
-                            <form>
+                            <form id="form-dang-nhap">
                                 <div class="form-row">
                                     <div class="form-group">
                                         <label for="Email">Email</label>
-                                        <input type="text" class="form-control" id="Email" placeholder="example@gmail.com">
+                                        <input type="text" name="email" class="form-control" id="email-dang-nhap" placeholder="example@gmail.com">
                                     </div>
                                     <div class="form-group">
                                         <label for="Password">Password</label>
-                                        <input type="password" class="form-control" id="Password" placeholder="password">
+                                        <input type="password" name="password" class="form-control" id="password-dang-nhap" placeholder="password">
+                                    </div>
+                                    <div class="form-group">
+                                        <i class="alert-danger" hidden>Sai mật khẩu hoặc email</i>
+                                    </div>
+                                    <div class="form-group text-left quen-mk" style="padding-right: 0px">
+                                        <a class="text-right" style="cursor: pointer; text-decoration: none">Quên mật khẩu ?</a>
                                     </div>
                                 </div>
                             </form>
@@ -76,12 +95,18 @@
 
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <div class="col-sm-10">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                    <div class="col-sm-2">
-                        <button type="submit" class="btn btn-primary">Đăng nhập</button>
+                <div class="modal-footer" style="margin-top: 0px">
+                    <div class="form-group">
+                        <div class="col-lg-6" style=";padding-left: 0px">
+                            <button type="button" class="btn btn-primary submit-dang-nhap" style="width: 100%">Đăng nhập</button>
+                        </div>
+                        <div class="col-lg-6" style=" padding-right: 0px">
+                            <a href="/user/sign-in/facebook">
+                                <button type="button" class="btn btn-primary btn-dang-nhap-facebook" style="width: 100%;">
+                                    <i class="fa fa-facebook-f"></i>
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -122,7 +147,6 @@
                                         <i class="alert-info" hidden>Đăng ký thành công. Vui lòng kiểm tra email để kích hoạt tài khoản.</i>
                                         <i class="alert-danger" hidden></i>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -139,6 +163,7 @@
             </div>
         </div>
     </div>
+
     <div class="modal fade" id="modal-cart" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -233,9 +258,17 @@
 </div>
 
 <script src="/javascripts/form-validation.js"></script>
-
 <script>
     $(document).ready(function () {
+        var user = <%- JSON.stringify(user) || false%>;
+        if(user){
+            $('.user-infor').removeAttr("hidden");
+            $('.title-user-dnhap').attr("hidden","true");
+        }else {
+            $('.user-infor').attr("hidden","true");
+            $('.title-user-dnhap').removeAttr("hidden");
+        }
+
         $('.click-dang-ky').click(function () {
            $('.modal-dang-nhap').attr("hidden","true");
            $('.modal-dang-ky').removeAttr("hidden")
@@ -244,9 +277,10 @@
             $('.modal-dang-nhap').removeAttr("hidden");
             $('.modal-dang-ky').attr("hidden","true");
         });
+
         $('.submit-dang-ky').click(function () {
             $.ajax({
-                url : "user/sign-up",
+                url : "/user/sign-up",
                 type : "post",
                 dataType:"json",
                 data : {
@@ -258,15 +292,46 @@
                 },
                 success : function (result){
                     if(result.err == false){
-                        $('.alert-info').removeAttr("hidden");
-                        $('.alert-danger').attr("hidden","true");
+                        $('#form-dang-ky .alert-info').removeAttr("hidden");
+                        $('#form-dang-ky .alert-danger').attr("hidden","true");
                         $("#form-dang-ky").trigger('reset');
                     }else {
-                        $('.alert-info').attr("hidden","true");
-                        $('.alert-danger').removeAttr("hidden").text('Kiểm tra lại thông tin hoặc email đã tồn tại');
+                        $('#form-dang-ky .alert-info').attr("hidden","true");
+                        $('#form-dang-ky .alert-danger').removeAttr("hidden").text('Kiểm tra lại thông tin hoặc email đã tồn tại');
+                    }
+                }
+            });
+        });
+
+        $('.submit-dang-nhap').click(function () {
+            $.ajax({
+                url : "/user/sign-in",
+                type : "post",
+                dataType:"json",
+                data : {
+                    email: $('#email-dang-nhap').val(),
+                    password: $('#password-dang-nhap').val(),
+
+                },
+                success : function (result){
+                    if(result.err == false){
+                        $('.user-infor').removeAttr("hidden");
+                        $('.title-user-dnhap').attr("hidden","true");
+                        $('#form-dang-nhap .alert-info').attr("hidden","true");
+                        $('#form-dang-nhap .alert-danger').attr("hidden","true");
+                        $('#modal-dang-nhap').modal('hide');
+                    }else {
+                        $('#form-dang-nhap .alert-info').attr("hidden","true");
+                        $('#form-dang-nhap .alert-danger').removeAttr("hidden").text('Kiểm tra lại thông tin hoặc tài khoản không tồn tại');
                     }
                 }
             });
         })
+
+        $('#modal-dang-nhap').on('hidden.bs.modal', function () {
+            $("#form-dang-ky").trigger('reset');
+            $("#form-dang-nhap").trigger('reset');
+        })
+
     })
 </script>

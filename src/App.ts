@@ -7,9 +7,10 @@ import * as session from 'express-session'
 import * as passport from 'passport'
 
 let config = require('../config.json');
-
+import {checkUserLogin} from "./helps/help"
 import {Authen} from "./config/passport"
 import {routerSilde} from "./routes/slide"
+import {routerUser} from "./routes/user"
 
 class App{
 
@@ -30,22 +31,20 @@ class App{
         this.express.set("view engine", "ejs");
         this.express.use(express.static(path.join(__dirname, '../public')));
         this.express.use(session(config.sessionOption));
-
+        this.express.use(passport.initialize());
+        this.express.use(passport.session());
     };
 
     private config():void{
-        this.express.use(passport.initialize());
-        this.express.use(passport.session());
-
-        Mongoose.connect(config.db.mongodb.url,config.db.mongodb.options);
+        Mongoose.connect(config.db.mongodb.url, config.db.mongodb.options);
         Mongoose.connection.once('open', () => {
             console.log('MongoDb connected');
          });
     }
 
     private router(): void{
-        this.express.use('/ShopOpen/v1/', routerSilde);
-
+        this.express.use('', routerSilde);
+        this.express.use('/user/profile/',checkUserLogin, routerUser);
     };
 }
 

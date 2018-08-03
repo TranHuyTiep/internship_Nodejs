@@ -22,9 +22,13 @@
     },
     "role": ["User","Admin"],
     "sessionOption":{
+        "name": "Host-user_session_same_site",
         "secret":"123456",
         "resave": false,
-        "saveUninitialized": true
+        "saveUninitialized": true,
+        "cookie": {
+            "expires": 86400000
+        }
     },
     "email":{
         "service": "gmail",

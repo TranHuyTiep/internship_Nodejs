@@ -4,26 +4,35 @@
  * Date: 27 07 2018
  * Time: 2:58 PM
  */
-import {connectMysql} from "../config/dbConnect";
+import {connectMysql} from "../config/dbConnect"
 import * as Mongoose from "mongoose"
+import { Timestamp } from "../../node_modules/@types/bson";
 
+
+/**
+ * Mysql
+ */
 export class QueryMysql extends connectMysql{
-    protected table: string;
+    protected table: String;
 
-    constructor(table: string){
+    constructor(table: String){
         super();
         this.table = table;
     }
     /**
      * lay thong tin cua mot bang
-     * @param {string} condition
+     * @param {String} condition
      * @returns {Promise<any>}
      */
-    public getData( condition ?: string) : Promise<any>{
+    public async getData( condition ?: string) : Promise<any>{
         let Condition = condition || " 1";
         let sql: string = `SELECT * FROM ${this.table} WHERE ${Condition}`;
-
-        return super.query(sql);
+        try {
+            return await super.query(sql);
+        } catch (error) {
+            throw(error)
+        }
+        
     };
 
     /**
@@ -33,7 +42,8 @@ export class QueryMysql extends connectMysql{
      */
     public async insertData(data: Array<Object>| Object): Promise<any>{
         let sqlResetIndex: string = `ALTER TABLE ${this.table} AUTO_INCREMENT = 1`;
-        let sqlInsert: string = `INSERT INTO ${this.table} SET ? `;
+
+        let sqlInsert: string = `INSERT INTO ${this.table} SET ? , createAt = now()`;
 
         try {
             await super.query(sqlResetIndex);
@@ -49,10 +59,13 @@ export class QueryMysql extends connectMysql{
      * @param {string} condition
      * @returns {Promise<any>}
      */
-    public updateData(data: Object, condition : string): Promise<any>{
-        let sql = `UPDATE ${this.table} SET ? WHERE ${condition}`;
-
-        return super.query(sql, data);
+    public async updateData(data: object, condition : string): Promise<any>{
+        let sql: string = `UPDATE ${this.table} SET ?,createAt = now() WHERE ${condition}`;
+        try {
+            return super.query(sql, data);
+        } catch (error) {
+            throw(error)
+        }
     };
 
     /**
@@ -61,13 +74,34 @@ export class QueryMysql extends connectMysql{
      * @param {string} condition
      * @returns {Promise<any>}
      */
-    public deleteData(data: string, condition : string): Promise<any>{
+    public deleteData(condition : string): Promise<any>{
         let sql = `DELETE FROM ${this.table} WHERE ${condition}`
 
-        return super.query(sql, data);
+        try {
+            return super.query(sql);
+        } catch (error) {
+            throw(error)
+        }
     };
+
+    /**
+     * get time Databese
+     * @returns {Promise<any>}
+     */
+    public getTime(): Promise<Array<{time: Date}>>{
+        let sql = `SELECT NOW() AS time`
+
+        try {
+            return super.query(sql);
+        } catch (error) {
+            throw(error)
+        }
+    }
 }
 
+/**
+ * Mongoodb
+ */
 export class QueryMongoodb {
     protected model: Mongoose.Model<Mongoose.Document>;
 

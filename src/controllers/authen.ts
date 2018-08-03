@@ -9,42 +9,112 @@ import * as Passport from 'passport'
 import {Request, Response, NextFunction} from 'express'
 import {verifyModel} from '../models/verify'
 import {userModel} from '../models/login'
+import {cryptoHelper} from "../helps/encryto";
+import * as crypto from "crypto";
+import * as Hepler from "../helps/help";
+import {sendMail} from "../helps/sendMail";
+import {userInterface, verify} from "../repository/interface";
 
 class Authen {
-    public signUp(req: Request, res: Response, next: NextFunction){
-        Passport.authenticate('signUp', (err, user, info) => {
-          if(err == null){
-              res.json({err: false});
-          }else {
-              res.json({err: true});
-          }
+
+    public async signUp(req: Request, res: Response, next: NextFunction){
+        let data: userInterface = req.body;
+        let conditionGetUser: string = `email = '${data.email}'`;
+
+        try {
+            let user: Array<userInterface> = await userModel.getUser(conditionGetUser);
+            if(user.length == 0 ){
+                let hashPassword = cryptoHelper.createPassword(data.password);
+                let userInsert: Partial<userInterface> = {
+                    email: data.email,
+                    password: hashPassword,
+                    username: data.username,
+                    active: false,
+                    role_id: 2,
+                    createBy: data.email,
+                };
+                let loginId: number = ((await userModel.insertUser(userInsert)).insertId);
+                let salt: string = crypto.randomBytes(32).toString();
+                let active = cryptoHelper.createPassword(hashPassword+salt);
+                let verifyInsert = {
+                    login_id: loginId,
+                    verify_code: active,
+                };
+
+                verifyModel.insertData(verifyInsert);
+                let text: string = `Vui lòng click vào link sau để xác nhận tài khoản! \n
+                                        Url: ${Hepler.getFullUrl(req, `/user/verify/${active}`)}`;
+                let subjext: string = `Email xác nhận tài khoản`;
+                sendMail(data.email, text, subjext);
+
+                res.json({err: false,user: {userId: loginId}});
+            }else {
+                res.json({err: true});
+            };
+        }catch (e) {
+            res.json({err: true});
+        }
+    };
+
+    public signIn(req: Request, res: Response, next: NextFunction): void{
+        Passport.authenticate('signIn', (err, user, info) => {
+            if (err) {
+                res.json({err: true});
+            }else {
+                req.logIn(user, function(err) {
+                    if(err == null){
+                        res.json({err: false,user: {userId: user}});
+                    }else {
+                        res.json({err: true});
+                    }
+                });
+            };
         })(req, res, next);
+    };
+
+    public signInFaceBook(){
+       return Passport.authenticate('signInFaceBook', {
+           successRedirect: '/user/profile',
+           failureRedirect: '/user/sign-in'
+       })
+    };
+
+    public signOut(req: Request, res: Response, next: NextFunction){
+        req.logOut();
+        res.redirect('/');
     }
 
-    public verify(req: Request, res: Response){
-        let verifyCode = req.params.verifyCode;
-        let conditionGetData = `verify_code = '${verifyCode}'`;
+    public resetPassword(req: Request, res: Response, next: NextFunction){
 
-        verifyModel.getData(conditionGetData)
-           .then(function (result) {
-               console.log(result)
-               let timeCreate = new Date(result[0].createAt).getTime();
-               let newTime = new Date().getTime();
-
-               if(result[0].verify_code == verifyCode && (newTime - timeCreate) < 3600000){
-                   let dataUserUpdate = {active : true};
-                   let conditionUpdateUser = `login_id = ${result[0].login_id}`;
-                   userModel.updateData(dataUserUpdate, conditionUpdateUser);
-
-                   res.render('slide/user_active');
-               }else {
-                   res.json('flase');
-               };
-           })
-           .catch(function (reject) {
-               res.json('flase');
-           });
     }
+
+    public async verify(req: Request, res: Response){
+        let verifyCode: string = req.params.verifyCode;
+        let conditionGetData: string = `verify_code = '${verifyCode}'`;
+        try {
+            let verifyQuery: Array<verify> =  await verifyModel.getData(conditionGetData);
+            let timeCreate: number = new Date(verifyQuery[0].createAt).getTime();
+            let timeDatabaseServer = await verifyModel.getTime();
+            let newTime = new Date(timeDatabaseServer[0].time).getTime();
+
+           if(verifyQuery[0].verify_code == verifyCode && (newTime - timeCreate) < 3600000){
+               let dataUserUpdate: object = {active : true};
+               let conditionUpdateUser: string = `login_id = ${verifyQuery[0].login_id}`;
+               let salt: string = crypto.randomBytes(32).toString();
+               let verify_code: string = cryptoHelper.createPassword(salt);
+
+               userModel.updateData(dataUserUpdate, conditionUpdateUser);
+               verifyModel.updateData({verify_code: verify_code}, conditionUpdateUser);
+
+               res.render('slide/user/user_active', {active: true, user: req.user});
+           }else {
+               res.render('slide/user/user_active',{active: false, user: req.user});
+           };
+
+        } catch (error) {
+            res.render('slide/user/user_active', {active: false, user: req.user});
+        };
+    };
 }
 
 const authen = new Authen();
