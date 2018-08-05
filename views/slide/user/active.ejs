@@ -1,0 +1,109 @@
+<%include ../header.ejs%>
+<%include ../menu.ejs%>
+<div id="main-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-md-6" style="background: #ffffff; margin: 15px; padding: 15px;">
+                <h2 class="title">Đăng nhập</h2>
+                <form id="active-dang-nhap">
+                    <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                    </div>
+                    <div class="form-group">
+                    <label for="pwd">Password:</label>
+                    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+                    </div>
+
+                    <div class="form-group">
+                        <i class="alert-info" hidden>Kích hoạt tài khoản thành công. Bạn có thể đăng nhập.</i>
+                        <i class="alert-danger" hidden>Mã kích hoạt đã hếtt hạn.</i>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-9" style="padding-left: 0px">
+                            <button type="button" class="btn btn-primary btn-dang-nhap">Đăng nhập</button>
+                            <button type="button" class="btn btn-default btn-lay-mkh">Lấy mã kích hoạt</button>
+                        </div>
+                        <div class="col-sm-3 text-right quen-mk" style="padding-right: 0px">
+                            <a class="text-right" style="cursor: pointer; text-decoration: none">Quên mật khẩu ?</a>
+                        </div>
+                    </div>
+                </form>
+
+                <form id="active-lay-mkh" hidden>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" placeholder="Enter email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <i class="alert-info" hidden>Mã kích hoạt đã được gửi.</i>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-gui-mkh">Gửi</button>
+                    <button type="button" class="btn btn-default btn-dang-nhap">Đăng nhập</button>
+                </form>
+
+                <form id="active-lay-mk" hidden>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" placeholder="Enter email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <i class="alert-info" hidden>Vui lòng check email.</i>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-gui-mkh">Gửi</button>
+                    <button type="button" class="btn btn-default btn-dang-nhap">Đăng nhập</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#active-dang-nhap .btn-lay-mkh').click(function () {
+            $('#active-dang-nhap').attr("hidden","true");
+            $('#active-lay-mkh').removeAttr("hidden");
+            $('#main-content .title').text('Lấy Mã Kích Hoạt')
+        });
+
+        $('#active-lay-mkh .btn-dang-nhap').click(function () {
+            $('#active-lay-mkh').attr("hidden","true");
+            $('#active-dang-nhap').removeAttr("hidden");
+            $('#main-content .title').text('Đăng Nhập')
+        });
+
+        $('#active-dang-nhap .quen-mk').click(function () {
+            $('#active-dang-nhap').attr("hidden","true");
+            $('#active-lay-mk').removeAttr("hidden");
+            $('#main-content .title').text('Quên Mặt Khẩu')
+        });
+
+        $('#active-lay-mk .btn-dang-nhap').click(function () {
+            $('#active-lay-mk').attr("hidden","true");
+            $('#active-dang-nhap').removeAttr("hidden");
+            $('#main-content .title').text('Đăng Nhập')
+        });
+
+        $('#active-dang-nhap .btn-dang-nhap').click(function () {
+            $.ajax({
+                url : "/user/sign-in",
+                type : "post",
+                dataType:"json",
+                data : {
+                    email: $('#email').val(),
+                    password: $('#pwd').val(),
+
+                },
+                success : function (result){
+                    if(result.err == false){
+                        window.location.replace('../profile');
+                    }else {
+                        $('#active-dang-nhap .alert-danger').removeAttr("hidden").text('Kiểm tra lại thông tin đăng nhập');
+                    }
+                }
+            });
+        })
+    })
+</script>
+<%include ../footer.ejs%>

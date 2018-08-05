@@ -1,0 +1,56 @@
+<div class="col-sm-3 col-md-3">
+    <div class="title">
+        <div class="row">
+            <div class="col-lg-3 col-sm-3 col-md-3">
+                <img src="/images/user.png" class="img-circle img-responsive">
+            </div>
+            <div class="col-lg-6" style="padding: 0px">
+                <h5><%= user.username%></h5>
+            </div>
+        </div>
+        <hr style="margin-bottom: 10px">
+
+    </div>
+
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                        <span class="glyphicon glyphicon-folder-close"> </span>
+                        Tài Khoản
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse thongtin in">
+                <div class="list-group">
+                    <a href="/user/profile" class="list-group-item active ">
+                        Thông tin cá nhân
+                    </a>
+                    <%if(user.password){%>
+                    <a href="/user/profile/edit-password" class="list-group-item doimk">Đổi mật khẩu</a>
+                    <%}else {%>
+                    <a href="/user/profile/add-password" class="list-group-item addmk">Thêm mật khẩu</a>
+                    <%}%>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                        <span class="glyphicon glyphicon-file"></span>
+                        Đơn hàng
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseFour" class="panel-collapse collapse danhsach ">
+                <div class="list-group">
+                    <a href="" class="list-group-item cert ">
+                        Đơn hàng đã mua
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

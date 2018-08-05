@@ -1,0 +1,49 @@
+<%include ../header.ejs%>
+<%include ../menu.ejs%>
+<link rel="stylesheet" href="/css/profile-user.css">
+
+<div id="main-content" >
+    <div class="container"  id="profile-user">
+        <%-include menu.ejs%>
+        <div class="col-sm-9 col-md-9" style="background: #ffffff; height: 100%">
+           <div class="title">
+               <h4>Hồ Sơ Của Tôi</h4>
+               <h5> Quản lý thông tin hồ sơ để bảo mật tài khoản</h5>
+               <hr>
+           </div>
+            <div>
+                <form class="form-horizontal" action="/user/profile/add-password" method="post">
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="name">Mật khẩu mới:</label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control" name="newPassword">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label  col-sm-3" for="pwd">Xác nhận mật khẩu:</label>
+                        <div class="col-sm-9">
+                            <input type="password" name="repPassword" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-10">
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $('.list-group a').removeClass( "active" )
+    $('.panel-collapse').removeClass( "in " )
+    $('.addmk').addClass( "active" );
+    $('.thongtin').addClass("in");
+</script>
+
+<%include ../footer.ejs%>

@@ -8,14 +8,12 @@
 import * as Passport from 'passport'
 import {Strategy} from 'passport-local'
 import {Strategy as FaceStrategy} from 'passport-facebook'
+import {cryptoHelper} from '../helps/encryto'
 import {Request, Response, Router} from 'express'
 import {userModel} from '../models/login'
-import {verifyModel} from '../models/verify'
-import {cryptoHelper} from '../helps/encryto'
-import {sendMail} from '../helps/sendMail'
-import * as Hepler from '../helps/help'
-import * as crypto from 'crypto'
-import {userInterface} from '../repository/interface'
+import {inforUserModel} from '../models/inforUser'
+
+import {inforUserInterface, userInterface} from '../repository/interface'
 
 
 class passport {
@@ -27,20 +25,24 @@ class passport {
 
     private init(){
         this.passport.serializeUser((userId: any, done: any) => {
-            let conditionGetUser = `login_id = '${userId}'`;
-            userModel.getUser(conditionGetUser)
             done(undefined, userId);
         });
 
-        this.passport.deserializeUser(function(userId: any, done: any) {
-            let conditionGetUser = `login_id = '${userId}'`;
-            userModel.getUser(conditionGetUser)
-                .then(function (user) {
-                    done(undefined, user[0]);
-                })
-                .catch(function (err) {
-                    done(err);
-                });
+        this.passport.deserializeUser(async function(userId: any, done: any) {
+            let conditionGetUser: string = `login_id = '${userId}'`;
+
+            try {
+                let inforUser: Array<inforUserInterface> = await inforUserModel.getInforUser(conditionGetUser);
+                if(inforUser[0].password != ''){
+                    inforUser[0].password = true;
+                }else {
+                    inforUser[0].password = false;
+                }
+                done(undefined, inforUser[0]);
+            }catch (e) {
+                done(undefined, null);
+                console.error(e);
+            }
         });
 
         this.passport.use('signIn', new Strategy({
@@ -50,12 +52,16 @@ class passport {
            },
            async function(req: Request, email, password, done) {
                let conditionGetUser: string = `email = '${email}'`;
-               let user: Array<userInterface> = await userModel.getUser(conditionGetUser);
-               if(user.length > 0 && user[0].active == true && cryptoHelper.validatePassword(password, user[0].password) ){
-                   return done(null, user[0].login_id);
-               }else {
+               try {
+                   let user: Array<userInterface> = await userModel.getUser(conditionGetUser);
+                   if(user.length > 0 && user[0].active == true && cryptoHelper.validatePassword(password, user[0].password) ){
+                       return done(null, user[0].login_id);
+                   }else {
+                       return done(true);
+                   };
+               }catch (e) {
                    return done(true);
-               };
+               }
            })
         );
 
@@ -69,7 +75,7 @@ class passport {
                 try {
                     let conditionGetUser: string = `oauth_id = '${profile.id}'`;
                     let user: Array<userInterface> = await userModel.getUser(conditionGetUser);
-                    
+
                     if(user.length > 0 ){
                         done(null, user[0].login_id);
                     }else {
@@ -81,6 +87,7 @@ class passport {
                             createBy: profile.id,
                         };
                         let loginId = ((await userModel.insertUser(userInsert)).insertId);
+                        inforUserModel.insertInforUser({login_id: loginId});
                         return done(null, loginId);
                     };
                 }catch (e) {

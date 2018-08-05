@@ -25,6 +25,19 @@ interface userInterface{
     createBy: string
 }
 
+interface inforUserInterface{
+    login_id: number,
+    phone : string,
+    name : string,
+    address : string,
+    sex : boolean,
+    birthday: Date,
+    email ?: string,
+    username ?: string,
+    password ?: string | boolean,
+}
+
+
 interface verify {
     login_id: number,
     verify_code: string,
@@ -32,4 +45,4 @@ interface verify {
 }
 
 
-export {MailOpTion, userInterface, verify}
+export {MailOpTion, inforUserInterface, userInterface, verify}

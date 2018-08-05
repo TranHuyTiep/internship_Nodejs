@@ -28,11 +28,18 @@ class RouterSilde {
         this.router.route('/user/sign-in')
             .get(isUserLogin, user.loadUserSignIn)
             .post(authen.signIn);
+
         this.router.route('/user/sign-in/facebook')
-            .get(isUserLogin, authen.signInFaceBook);
+            .get(isUserLogin, authen.signInFaceBook());
 
         this.router.route('/user/sign-out')
             .get( authen.signOut);
+
+        this.router.route('/user/reset-password')
+            .get(isUserLogin, user.loadUserResetPassword);
+
+        this.router.route('/user/create-password')
+            .get(isUserLogin, user.loadCreatePassword);
 
         this.router.route('/user/verify/:verifyCode')
             .get(isUserLogin, authen.verify);

@@ -8,12 +8,12 @@ import {QueryMongoodb} from "./models"
 import {Product} from "../repository/product/schemal"
 import * as Mongoose from "mongoose";
 
-export class UserModel extends QueryMongoodb{
+export class ProductModel extends QueryMongoodb{
     constructor(schema: Mongoose.Model<Mongoose.Document>){
         super(schema)
     }
 };
 
-let productModel = new UserModel(Product);
+let productModel = new ProductModel(Product);
 
 export {productModel}

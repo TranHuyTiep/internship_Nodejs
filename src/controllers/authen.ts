@@ -9,6 +9,7 @@ import * as Passport from 'passport'
 import {Request, Response, NextFunction} from 'express'
 import {verifyModel} from '../models/verify'
 import {userModel} from '../models/login'
+import {inforUserModel} from '../models/inforUser'
 import {cryptoHelper} from "../helps/encryto";
 import * as crypto from "crypto";
 import * as Hepler from "../helps/help";
@@ -42,6 +43,7 @@ class Authen {
                 };
 
                 verifyModel.insertData(verifyInsert);
+                inforUserModel.insertData({login_id: loginId});
                 let text: string = `Vui lòng click vào link sau để xác nhận tài khoản! \n
                                         Url: ${Hepler.getFullUrl(req, `/user/verify/${active}`)}`;
                 let subjext: string = `Email xác nhận tài khoản`;
@@ -56,7 +58,7 @@ class Authen {
         }
     };
 
-    public signIn(req: Request, res: Response, next: NextFunction): void{
+    public signIn(req: Request, res: Response, next: NextFunction){
         Passport.authenticate('signIn', (err, user, info) => {
             if (err) {
                 res.json({err: true});
@@ -75,7 +77,6 @@ class Authen {
     public signInFaceBook(){
        return Passport.authenticate('signInFaceBook', {
            successRedirect: '/user/profile',
-           failureRedirect: '/user/sign-in'
        })
     };
 
@@ -106,13 +107,13 @@ class Authen {
                userModel.updateData(dataUserUpdate, conditionUpdateUser);
                verifyModel.updateData({verify_code: verify_code}, conditionUpdateUser);
 
-               res.render('slide/user/user_active', {active: true, user: req.user});
+               res.render('slide/user/active', {active: true, user: req.user});
            }else {
-               res.render('slide/user/user_active',{active: false, user: req.user});
+               res.render('slide/user/active',{active: false, user: req.user});
            };
 
         } catch (error) {
-            res.render('slide/user/user_active', {active: false, user: req.user});
+            res.render('slide/user/active', {active: false, user: req.user});
         };
     };
 }

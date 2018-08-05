@@ -1,0 +1,87 @@
+<%include ../header.ejs%>
+<%include ../menu.ejs%>
+<link rel="stylesheet" href="/css/profile-user.css">
+
+<div id="main-content" >
+    <div class="container"  id="profile-user">
+        <%-include menu.ejs%>
+        <div class="col-sm-9 col-md-9" style="background: #ffffff; height: 100%">
+           <div class="title">
+               <h4>Hồ Sơ Của Tôi</h4>
+               <h5> Quản lý thông tin hồ sơ để bảo mật tài khoản</h5>
+               <hr>
+           </div>
+            <div>
+                <form class="form-horizontal" action="" method="post">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="">UserName:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="username" id="username" value="<%=user.username%>" >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="name">Name:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="name" id="name" value="<%=user.name%>" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="email">Email:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="email" id="email" value="<%=user.email%>" >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label  col-sm-2" for="pwd">Số điện thoại:</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="phone" class="form-control" value="<%=user.phone%>" id="pwd" placeholder="(+84) 1663335020">
+                        </div>
+                    </div>
+                    <fieldset class="form-group row">
+                        <label class="col-sm-2 control-label">
+                            Giới tính:
+                        </label>
+                        <div class="col-sm-10">
+                            <%if(user.sex){%>
+                                <label><input type="radio" name="sex" value="1" checked>Nam</label>
+                                <label><input type="radio" name="sex" value="0">Nữ</label>
+                            <%}else {%>
+                                <label><input type="radio" name="sex" value="1" >Nam</label>
+                                <label><input type="radio" name="sex" value="0" checked>Nữ</label>
+                            <%}%>
+                        </div>
+                    </fieldset>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="pwd">Ngày Sinh:</label>
+                        <div class="col-sm-10 " >
+                            <%if(user.birthday != '0000-00-00'){%>
+                            <div class="bfh-datepicker" data-date = '<%=user.birthday.toLocaleDateString()%>' data-format="y-m-d" data-min="1995-01-01" data-max = "2100-12-31" data-name = "birthday">
+                            </div>
+                            <%}else {%>
+                            <div class="bfh-datepicker"  data-format="y-m-d" data-min="1995-01-01" data-max = "2100-12-31" data-name = "birthday">
+                            </div>
+                            <%}%>
+                        </div>
+                    </div>
+
+                    <div class="form-group address">
+                        <label class="control-label col-sm-2 title" >Địa chỉ:</label>
+                        <div class="col-sm-10 content">
+                            <textarea name="address" class="form-control" value="" rows="5" placeholder="Nhập địa chỉ của bạn"><%=user.address%></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<%include ../footer.ejs%>

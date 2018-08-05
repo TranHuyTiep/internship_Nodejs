@@ -1,3 +1,16 @@
 #profile-user .panel-collapse .list-group{
     margin-bottom: 0px;
 }
+
+/*form thong tin*/
+.form-horizontal .control-label{
+    text-align: left;
+}
+
+.form-horizontal .icon-edit:hover{
+    color: #5792c5;
+    cursor: pointer
+}
+.form-horizontal .submit{
+    margin-top: 10px ;
+}
