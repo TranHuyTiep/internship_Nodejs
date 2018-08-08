@@ -1,15 +1,9 @@
-/**
- * Created by PhpStorm.
- * User: Tran Huy Tiep
- * Date: 27 07 2018
- * Time: 5:06 PM
- */
 import * as Mongoose from "mongoose"
 const ObjectId = Mongoose.Schema.Types.ObjectId;
 
 class product {
     static get schema () {
-        var schema = new Mongoose.Schema({
+        return new Mongoose.Schema({
             name: {
                 type: String,
                 unique: true,
@@ -56,19 +50,17 @@ class product {
                 type: Map,
             },
             slide: {
-              type: Boolean,
-              default: false
+                type: Boolean,
+                default: false
             },
             createAt: {
                 type: Number,
                 default: new Date().getTime()
             }
         });
-
-        return schema;
     }
 
 }
 
-var Product = Mongoose.model("product", product.schema);
+const Product = Mongoose.model("products", product.schema);
 export {Product};
