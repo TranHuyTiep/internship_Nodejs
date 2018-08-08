@@ -100,5 +100,5 @@ class passport {
     };
 };
 
-const Authen = new passport();
-export {Authen}
+const auth = new passport();
+export {auth}

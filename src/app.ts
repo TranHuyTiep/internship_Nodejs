@@ -8,8 +8,10 @@ import * as passport from 'passport'
 
 let config = require('../config.json');
 
-import {Authen} from "./config/passport"
+import {auth} from "./config/passport"
 import {routerSilde} from "./routes/slide"
+import {routerProduct} from "./routes/product";
+import {searchServices} from "./routes/search";
 
 class App{
 
@@ -20,7 +22,7 @@ class App{
         this.middleware();
         this.config();
         this.router();
-        Authen;
+        auth;
     };
 
     private middleware(): void{
@@ -44,7 +46,9 @@ class App{
     }
 
     private router(): void{
-        this.express.use('/ShopOpen/v1/', routerSilde);
+        this.express.use('/shopOpen/v1/', routerSilde);
+        this.express.use('/shopOpen/v1/products', routerProduct);
+        this.express.use('/shopOpen/v1/search', searchServices);
 
     };
 }
