@@ -11,22 +11,7 @@ import {Request, Response} from "express";
 
 class Home {
     public loadHomePage(req: Request, res: Response){
-        // let data = {
-        //     name: 'aáddasasdaasdad',
-        //     category_id: new ObjectId("5b498b1f3721c809a4ee1d87"),
-        //     sub_category_id:new ObjectId('5b498b1f3721c809a4ee1d87'),
-        //     unit: 'asda',
-        //     saleOff: 122,
-        //     price: 2333,
-        //     classify: [],
-        //     images: []
-        //
-        // }
-        // productModel.save(data).then(function (a) {
-        //     console.log(a)
-        // })
         res.render('slide/home');
-
     }
 }
 
