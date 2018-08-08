@@ -7,6 +7,7 @@
 import {Router} from "express";
 import {home} from "../controllers/home";
 import {authen} from '../controllers/authen';
+import {productController} from "../controllers/productController";
 
 class RouterSilde {
     public router : Router;
@@ -19,13 +20,17 @@ class RouterSilde {
     private init(){
         this.router.route(['/home',''])
             .get(home.loadHomePage);
-
         this.router.route('/user/sign-up')
             .post(authen.signUp);
 
         this.router.route('/user/verify/:verifyCode')
             .get(authen.verify);
 
+        this.router.route('/test/')
+            .post(productController.createProduct)
+            .get(productController.getAllProduct)
+            .put(productController.updateProduct)
+            .delete(productController.removeProduct);
     }
 }
 
