@@ -1,9 +1,3 @@
-/**
- * Created by PhpStorm.
- * User: Tran Huy Tiep
- * Date: 27 07 2018
- * Time: 2:58 PM
- */
 import {connectMysql} from "../config/dbConnect";
 import * as Mongoose from "mongoose"
 
@@ -69,33 +63,23 @@ export class QueryMysql extends connectMysql{
 }
 
 export class QueryMongoodb {
-    protected model: Mongoose.Model<Mongoose.Document>;
+
+    protected _model: Mongoose.Model<Mongoose.Document>;
 
     constructor(schema: Mongoose.Model<Mongoose.Document>){
-        this.model = schema;
+        this._model = schema;
     }
 
     /**
-     * get data
-     * @param {object} condition
-     * @param {object} getList
-     * @returns {Promise<any>}
+     * @return {Promise<void>}
      */
-    public getData(condition: object, getList ?: object) {
-        const promise = new Promise((resolve, reject) => {
-            this.model
-                .find(condition)
-                .select(getList)
-                .exec(function (error, users) {
-                    if (error) {
-                        resolve(error);
-                    } else {
-                        reject(users);
-                    }
-                });
-        });
-
-        return promise;
+    public getAllData() : Promise<object[]> {
+            return new Promise<object[]>((resolve, reject) => {
+                this._model.find({}).exec((err, rawProducts) => {
+                    if (err) return reject(err);
+                    resolve(rawProducts)
+                })
+            })
     }
 
     /**
@@ -104,19 +88,17 @@ export class QueryMongoodb {
      * @returns {Promise<any>}
      */
     public save(data: object) {
-        const promise = new Promise((resolve, reject) => {
-            let dataSave = new this.model(data);
-            dataSave.save(function(err, result){
-                if(err){
+        return new Promise((resolve, reject) => {
+            let dataSave = new this._model(data);
+            dataSave.save(function (err, result) {
+                if (err) {
                     reject(err);
 
-                }else{
+                } else {
                     resolve(result);
                 }
             });
         });
-
-        return promise;
     };
 
     /**
@@ -126,19 +108,17 @@ export class QueryMongoodb {
      * @returns {Promise<any>}
      */
     public update(condition: object, data: object) {
-        const promise = new Promise((resolve, reject) => {
+        return new Promise((resolve, reject) => {
 
-            this.model.update(condition, data, function (err, result) {
-                    if (err) {
-                        resolve(err);
-                    } else {
-                        reject(result);
-                    }
-                });
+            this._model.update(condition, data,function (err, result) {
+                if (err) {
+                    resolve(err);
+                } else {
+                    reject(result);
+                }
+            });
 
         });
-
-        return promise;
     };
 
     /**
@@ -147,8 +127,8 @@ export class QueryMongoodb {
      * @returns {Promise<any>}
      */
     public remove(condition: object) {
-        const promise = new Promise((resolve, reject) => {
-            this.model.remove(condition, function (error) {
+        return new Promise((resolve, reject) => {
+            this._model.remove(condition, function (error) {
                 if (error) {
                     resolve(error);
                 } else {
@@ -156,7 +136,5 @@ export class QueryMongoodb {
                 }
             });
         });
-
-        return promise;
     };
 }

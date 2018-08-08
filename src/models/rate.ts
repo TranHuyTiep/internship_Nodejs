@@ -12,7 +12,7 @@ export class Rate extends QueryMongoodb{
     constructor(schema: Mongoose.Model<Mongoose.Document>){
         super(schema)
     }
-};
+}
 
 let rateModel = new Rate(rate);
 
