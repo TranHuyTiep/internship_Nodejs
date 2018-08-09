@@ -88,7 +88,7 @@
                                         <i class="alert-danger" hidden>Sai mật khẩu hoặc email</i>
                                     </div>
                                     <div class="form-group text-left quen-mk" style="padding-right: 0px">
-                                        <a class="text-right" style="cursor: pointer; text-decoration: none">Quên mật khẩu ?</a>
+                                        <a class="text-right click-quen-mk" style="cursor: pointer; text-decoration: none">Quên mật khẩu ?</a>
                                     </div>
                                 </div>
                             </form>
@@ -110,6 +110,43 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="modal-content modal-quen-mk" hidden>
+                <div class="modal-header">
+                    <div class="col-lg-10">
+                        <h4 class="modal-title " style=" cursor: pointer">Quên mật khẩu</h4>
+                    </div>
+                    <h4 class="modal-title">
+                        <a type="button" class="click-dang-nhap">Đăng Nhập</a>
+                    </h4>
+                </div>
+                <form id="form-quen-mk">
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="email-quen-mk">Email</label>
+                                        <input type="text" name="email" class="form-control" id="email-quen-mk" placeholder="example@gmail.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <i class="alert-info" >Nhập email của bạn để lấy lại mật khẩu.</i>
+                                        <i class="alert-danger" hidden></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-sm-8">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                        <div class="col-sm-4">
+                            <button type="button" class="btn btn-primary submit-quen-mk">Lấy lại mật khẩu</button>
+                        </div>
+                    </div>
+                </form>
             </div>
 
             <div class="modal-content modal-dang-ky" hidden>
@@ -257,7 +294,6 @@
         </div>
     </div>
 </div>
-
 <script src="/javascripts/form-validation.js"></script>
 <script>
     $(document).ready(function () {
@@ -272,12 +308,26 @@
 
         $('.click-dang-ky').click(function () {
            $('.modal-dang-nhap').attr("hidden","true");
+            $('.modal-quen-mk').attr("hidden","true");
            $('.modal-dang-ky').removeAttr("hidden")
         });
         $('.click-dang-nhap').click(function () {
             $('.modal-dang-nhap').removeAttr("hidden");
             $('.modal-dang-ky').attr("hidden","true");
+            $('.modal-quen-mk').attr("hidden","true");
         });
+
+        $('.click-quen-mk').click(function () {
+            $('.modal-dang-nhap').attr("hidden","true");
+            $('.modal-dang-ky').attr("hidden","true");
+            $('.modal-quen-mk').removeAttr("hidden")
+        });
+
+        $('#modal-dang-nhap').on('hidden.bs.modal', function () {
+            $("#form-dang-ky").trigger('reset');
+            $("#form-dang-nhap").trigger('reset');
+            $("#form-quen-mk").trigger('reset');
+        })
 
         $('.submit-dang-ky').click(function () {
             $.ajax({
@@ -300,6 +350,7 @@
                         $('#form-dang-ky .alert-info').attr("hidden","true");
                         $('#form-dang-ky .alert-danger').removeAttr("hidden").text('Kiểm tra lại thông tin hoặc email đã tồn tại');
                     }
+                    $("#form-quen-mk").trigger('reset');
                 }
             });
         });
@@ -329,9 +380,23 @@
             });
         })
 
-        $('#modal-dang-nhap').on('hidden.bs.modal', function () {
-            $("#form-dang-ky").trigger('reset');
-            $("#form-dang-nhap").trigger('reset');
+        $('.submit-quen-mk').click(function () {
+            $.ajax({
+                url : "/user/reset-password",
+                type : "post",
+                dataType:"json",
+                data : {
+                    email: $('#email-quen-mk').val(),
+                },
+                success : function (result){
+                    if(result.err == false){
+                        $('#form-quen-mk .alert-info').text("Vui lòng check email!");
+                    }else {
+                        $('#form-quen-mk .alert-info').attr("hidden","true");
+                        $('#form-quen-mk .alert-danger').removeAttr("hidden").text('Email không tồn tại');
+                    }
+                }
+            });
         })
 
     })

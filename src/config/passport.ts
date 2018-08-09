@@ -10,6 +10,8 @@ import {Strategy} from 'passport-local'
 import {Strategy as FaceStrategy} from 'passport-facebook'
 import {cryptoHelper} from '../helps/encryto'
 import {Request, Response, Router} from 'express'
+import {verifyModel} from '../models/verify'
+import * as crypto from "crypto";
 import {userModel} from '../models/login'
 import {inforUserModel} from '../models/inforUser'
 
@@ -78,7 +80,7 @@ class passport {
 
                     if(user.length > 0 ){
                         done(null, user[0].login_id);
-                    }else {
+                    } else {
                         let userInsert: Partial<userInterface> = {
                             username: profile.displayName,
                             active: true,
@@ -86,7 +88,15 @@ class passport {
                             role_id: 2,
                             createBy: profile.id,
                         };
-                        let loginId = ((await userModel.insertUser(userInsert)).insertId);
+                        let loginId: number = ((await userModel.insertUser(userInsert)).insertId);
+                        let salt: string = crypto.randomBytes(32).toString();
+                        let active: string = cryptoHelper.createPassword(salt);
+                        let verifyInsert = {
+                            login_id: loginId,
+                            verify_code: active,
+                        };
+
+                        verifyModel.insertData(verifyInsert);
                         inforUserModel.insertInforUser({login_id: loginId});
                         return done(null, loginId);
                     };

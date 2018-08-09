@@ -1,7 +1,7 @@
 {
     "db" : {
         "mongodb": {
-            "url"     : "mongodb://127.0.0.1:27017/internship_nodejs",
+            "url"     : "mongodb://mongo:27017/internship_nodejs",
             "options" : {
                 "useNewUrlParser": true,
                 "poolSize": 10,
@@ -9,9 +9,9 @@
             }
         },
         "mysql": {
-            "host"     : "localhost",
-            "user"     : "root",
-            "password" : "",
+            "host"     : "mysql",
+            "user"     : "huytiep",
+            "password" : "123456",
             "database" : "internship_nodejs",
             "connectionLimit" : 10
         }

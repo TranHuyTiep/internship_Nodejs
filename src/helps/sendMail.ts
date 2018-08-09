@@ -9,16 +9,38 @@ let config = require('../../config.json');
 import {MailOpTion} from '../repository/interface'
 
 
-function sendMail(email: string, text: string, subject: string) {
-    const promise = new Promise(function (resolve, reject) {
-        var transporter = nodemailer.createTransport(config.email);
-        var mail = {
-            from: config.email.auth.user,
-            to: email,
-            subject: subject,
-            text: text
-        };
+function sendMail(email: string, text: string, subject: string): Promise<void> {
+    var transporter = nodemailer.createTransport(config.email);
+    var mail = {
+        from: config.email.auth.user,
+        to: email,
+        subject: subject,
+        text: text
+    };
 
+    return sendMailCustom(transporter, mail);
+};
+
+function sendFile(mailOption: MailOpTion): Promise<void> {
+    var transporter = nodemailer.createTransport(config.email);
+    var mail = {
+        from: config.email.auth.user,
+        to: mailOption.email,
+        subject: mailOption.subject,
+        text: mailOption.text,
+        attachments: [
+            {
+                filename: mailOption.fileName,
+                path: mailOption.file
+            }
+        ]
+    };
+
+    return sendMailCustom(transporter, mail);
+}
+
+function sendMailCustom(transporter: nodemailer.Transporter, mail: object): Promise<void> {
+    return new Promise(function (resolve, reject) {
         transporter.sendMail(mail,function(error, response){
             if(error){
                 reject(error);
@@ -28,39 +50,7 @@ function sendMail(email: string, text: string, subject: string) {
             transporter.close();
         });
     })
-
-    return promise;
 };
-
-function sendFile(mailOption: MailOpTion, callback: any) {
-    const promise = new Promise(function (resolve, reject) {
-        var transporter = nodemailer.createTransport(config.email);
-
-        var mail = {
-            from: config.email.auth.user,
-            to: mailOption.email,
-            subject: mailOption.subject,
-            text: mailOption.text,
-            attachments: [
-                {
-                    filename: mailOption.fileName,
-                    path: mailOption.file
-                }
-            ]
-        };
-
-        transporter.sendMail(mail, function(error, response){
-            if(error){
-                callback(error);
-            }else{
-                callback(error,response);
-            }
-            transporter.close();
-        });
-    })
-    return promise;
-
-}
 
 export {sendMail, sendFile}
 

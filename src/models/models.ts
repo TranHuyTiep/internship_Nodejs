@@ -110,7 +110,7 @@ export class QueryMongoodb {
     }
 
     /**
-     * get data
+     * get data-mysql
      * @param {object} condition
      * @param {object} getList
      * @returns {Promise<any>}
@@ -133,7 +133,7 @@ export class QueryMongoodb {
     }
 
     /**
-     * insert data
+     * insert data-mysql
      * @param {object} data
      * @returns {Promise<any>}
      */
@@ -154,7 +154,7 @@ export class QueryMongoodb {
     };
 
     /**
-     * update data by condition
+     * update data-mysql by condition
      * @param {object} condition
      * @param {object} data
      * @returns {Promise<any>}
@@ -176,7 +176,7 @@ export class QueryMongoodb {
     };
 
     /**
-     * remove data by condition
+     * remove data-mysql by condition
      * @param {object} condition
      * @returns {Promise<any>}
      */

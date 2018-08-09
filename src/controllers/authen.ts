@@ -42,12 +42,13 @@ class Authen {
                     verify_code: active,
                 };
 
-                verifyModel.insertData(verifyInsert);
-                inforUserModel.insertData({login_id: loginId});
+                let insertingVerify: Promise<any> = verifyModel.insertData(verifyInsert);
+                let insertingInfor: Promise<any> = inforUserModel.insertData({login_id: loginId});
                 let text: string = `Vui lòng click vào link sau để xác nhận tài khoản! \n
                                         Url: ${Hepler.getFullUrl(req, `/user/verify/${active}`)}`;
                 let subjext: string = `Email xác nhận tài khoản`;
-                sendMail(data.email, text, subjext);
+                let sendingMail = sendMail(data.email, text, subjext);
+                Promise.all([insertingInfor, insertingVerify, sendingMail]);
 
                 res.json({err: false,user: {userId: loginId}});
             }else {
@@ -76,7 +77,9 @@ class Authen {
 
     public signInFaceBook(){
        return Passport.authenticate('signInFaceBook', {
-           successRedirect: '/user/profile',
+           successRedirect : 'back',
+           failureRedirect : 'back',
+           failureFlash : true
        })
     };
 
@@ -85,8 +88,28 @@ class Authen {
         res.redirect('/');
     }
 
-    public resetPassword(req: Request, res: Response, next: NextFunction){
+    public async resetPassword(req: Request, res: Response, next: NextFunction){
+        let conditionGetUser: string = `email = '${req.body.email}'`;
 
+        try {
+            let user: Array<userInterface> = await userModel.getUser(conditionGetUser);
+
+            if(user.length > 0){
+                let conditionGetVerifyCode: string = `login_id = '${user[0].login_id}'`;
+                let verifyCode: Array<verify> = await verifyModel.getData(conditionGetVerifyCode);
+                let text: string = `Vui lòng click vào link sau để reset mật khẩu! \n
+                                        Url: ${Hepler.getFullUrl(req, `/user/verify/${verifyCode[0].verify_code}`)}`;
+                let subjext: string = `Email reset tài khoản`;
+
+                let sendingMail:Promise<void> = sendMail(req.body.email, text, subjext);
+                res.json({err: false});
+            }else {
+                res.json({err: true});
+            };
+        }catch (e) {
+            console.error(e);
+            res.json({err: true});
+        }
     }
 
     public async verify(req: Request, res: Response){
@@ -104,11 +127,17 @@ class Authen {
                let salt: string = crypto.randomBytes(32).toString();
                let verify_code: string = cryptoHelper.createPassword(salt);
 
-               userModel.updateData(dataUserUpdate, conditionUpdateUser);
-               verifyModel.updateData({verify_code: verify_code}, conditionUpdateUser);
+               let userUpdating: Promise<any> = userModel.updateData(dataUserUpdate, conditionUpdateUser);
+               let verifyUpdating:  Promise<any> = verifyModel.updateData({verify_code: verify_code}, conditionUpdateUser);
+               Promise.all([userUpdating, verifyUpdating]);
 
                res.render('slide/user/active', {active: true, user: req.user});
            }else {
+               let conditionUpdateUser: string = `login_id = ${verifyQuery[0].login_id}`;
+               let salt: string = crypto.randomBytes(32).toString();
+               let verify_code: string = cryptoHelper.createPassword(salt);
+
+               let verifyUpdating:  Promise<any> = verifyModel.updateData({verify_code: verify_code}, conditionUpdateUser);
                res.render('slide/user/active',{active: false, user: req.user});
            };
 

@@ -37,7 +37,6 @@ interface inforUserInterface{
     password ?: string | boolean,
 }
 
-
 interface verify {
     login_id: number,
     verify_code: string,

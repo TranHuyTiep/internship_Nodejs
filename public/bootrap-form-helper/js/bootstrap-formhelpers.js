@@ -13798,7 +13798,7 @@ var BFHTimezonesList = {
   /* COLORPICKER CLASS DEFINITION
   * ========================= */
 
-  var toggle = '[data-toggle=bfh-colorpicker]',
+  var toggle = '[data-mysql-toggle=bfh-colorpicker]',
       BFHColorPicker = function (element, options) {
         this.options = $.extend({}, $.fn.bfhcolorpicker.defaults, options);
         this.$element = $(element);
@@ -13855,7 +13855,7 @@ var BFHTimezonesList = {
       }
 
       this.$element.html(
-        '<div class="input-group bfh-colorpicker-toggle" data-toggle="bfh-colorpicker">' +
+        '<div class="input-group bfh-colorpicker-toggle" data-mysql-toggle="bfh-colorpicker">' +
         iconLeft +
         '<input type="text" name="' + this.options.name + '" class="' + this.options.input + '" placeholder="' + this.options.placeholder + '" readonly>' +
         iconRight +
@@ -13866,9 +13866,9 @@ var BFHTimezonesList = {
       );
 
       this.$element
-        .on('click.bfhcolorpicker.data-api touchstart.bfhcolorpicker.data-api', toggle, BFHColorPicker.prototype.toggle)
-        .on('mousedown.bfhcolorpicker.data-api', 'canvas', BFHColorPicker.prototype.mouseDown)
-        .on('click.bfhcolorpicker.data-api touchstart.bfhcolorpicker.data-api', '.bfh-colorpicker-popover', function() { return false; });
+        .on('click.bfhcolorpicker.data-mysql-api touchstart.bfhcolorpicker.data-mysql-api', toggle, BFHColorPicker.prototype.toggle)
+        .on('mousedown.bfhcolorpicker.data-mysql-api', 'canvas', BFHColorPicker.prototype.mouseDown)
+        .on('click.bfhcolorpicker.data-mysql-api touchstart.bfhcolorpicker.data-mysql-api', '.bfh-colorpicker-popover', function() { return false; });
 
       this.initPalette();
       
@@ -13927,8 +13927,8 @@ var BFHTimezonesList = {
       $parent = getParent($this);
       
       $(document)
-        .on('mousemove.bfhcolorpicker.data-api', {colorpicker: $parent}, BFHColorPicker.prototype.mouseMove)
-        .one('mouseup.bfhcolorpicker.data-api', {colorpicker: $parent}, BFHColorPicker.prototype.mouseUp);
+        .on('mousemove.bfhcolorpicker.data-mysql-api', {colorpicker: $parent}, BFHColorPicker.prototype.mouseMove)
+        .one('mouseup.bfhcolorpicker.data-mysql-api', {colorpicker: $parent}, BFHColorPicker.prototype.mouseUp);
     },
     
     mouseMove: function(e) {
@@ -13946,7 +13946,7 @@ var BFHTimezonesList = {
       
       $this.data('bfhcolorpicker').updateVal(e.pageX, e.pageY);
       
-      $(document).off('mousemove.bfhcolorpicker.data-api');
+      $(document).off('mousemove.bfhcolorpicker.data-mysql-api');
       
       if ($this.data('bfhcolorpicker').options.close === true) {
         clearMenus();
@@ -14113,7 +14113,7 @@ var BFHTimezonesList = {
    * =================================== */
 
   $(document)
-    .on('click.bfhcolorpicker.data-api', clearMenus);
+    .on('click.bfhcolorpicker.data-mysql-api', clearMenus);
 
 }(window.jQuery);
 /* ==========================================================
@@ -14231,15 +14231,15 @@ var BFHTimezonesList = {
       $options.html('');
 
       if (this.options.blank === true) {
-        $options.append('<li><a tabindex="-1" href="#" data-option=""></a></li>');
+        $options.append('<li><a tabindex="-1" href="#" data-mysql-option=""></a></li>');
       }
 
       for (country in countries) {
         if (countries.hasOwnProperty(country)) {
           if (this.options.flags === true) {
-            $options.append('<li><a tabindex="-1" href="#" data-option="' + country + '"><i class="glyphicon bfh-flag-' + country + '"></i>' + countries[country] + '</a></li>');
+            $options.append('<li><a tabindex="-1" href="#" data-mysql-option="' + country + '"><i class="glyphicon bfh-flag-' + country + '"></i>' + countries[country] + '</a></li>');
           } else {
-            $options.append('<li><a tabindex="-1" href="#" data-option="' + country + '">' + countries[country] + '</a></li>');
+            $options.append('<li><a tabindex="-1" href="#" data-mysql-option="' + country + '">' + countries[country] + '</a></li>');
           }
         }
       }
@@ -14436,7 +14436,7 @@ var BFHTimezonesList = {
       $options.html('');
 
       if (this.options.blank === true) {
-        $options.append('<li><a tabindex="-1" href="#" data-option=""></a></li>');
+        $options.append('<li><a tabindex="-1" href="#" data-mysql-option=""></a></li>');
       }
 
       for (currency in currencies) {
@@ -14447,9 +14447,9 @@ var BFHTimezonesList = {
             } else {
               flag = currency.substr(0,2);
             }
-            $options.append('<li><a tabindex="-1" href="#" data-option="' + currency +  '"><i class="glyphicon bfh-flag-' + flag + '"></i>' + currencies[currency].label + '</a></li>');
+            $options.append('<li><a tabindex="-1" href="#" data-mysql-option="' + currency +  '"><i class="glyphicon bfh-flag-' + flag + '"></i>' + currencies[currency].label + '</a></li>');
           } else {
-            $options.append('<li><a tabindex="-1" href="#" data-option="' + currency + '">' + currencies[currency].label + '</a></li>');
+            $options.append('<li><a tabindex="-1" href="#" data-mysql-option="' + currency + '">' + currencies[currency].label + '</a></li>');
           }
         }
       }
@@ -14567,7 +14567,7 @@ var BFHTimezonesList = {
   /* BFHDATEPICKER CLASS DEFINITION
    * ========================= */
 
-  var toggle = '[data-toggle=bfh-datepicker]',
+  var toggle = '[data-mysql-toggle=bfh-datepicker]',
       BFHDatePicker = function (element, options) {
         this.options = $.extend({}, $.fn.bfhdatepicker.defaults, options);
         this.$element = $(element);
@@ -14646,7 +14646,7 @@ var BFHTimezonesList = {
       }
 
       this.$element.html(
-        '<div class="' + iconAddon + ' bfh-datepicker-toggle" data-toggle="bfh-datepicker">' +
+        '<div class="' + iconAddon + ' bfh-datepicker-toggle" data-mysql-toggle="bfh-datepicker">' +
         iconLeft +
         '<input type="text" name="' + this.options.name + '" class="' + this.options.input + '" placeholder="' + this.options.placeholder + '" readonly>' +
         iconRight +
@@ -14676,13 +14676,13 @@ var BFHTimezonesList = {
       );
 
       this.$element
-        .on('click.bfhdatepicker.data-api touchstart.bfhdatepicker.data-api', toggle, BFHDatePicker.prototype.toggle)
-        .on('click.bfhdatepicker.data-api touchstart.bfhdatepicker.data-api', '.bfh-datepicker-calendar > table.calendar .month > .previous', BFHDatePicker.prototype.previousMonth)
-        .on('click.bfhdatepicker.data-api touchstart.bfhdatepicker.data-api', '.bfh-datepicker-calendar > table.calendar .month > .next', BFHDatePicker.prototype.nextMonth)
-        .on('click.bfhdatepicker.data-api touchstart.bfhdatepicker.data-api', '.bfh-datepicker-calendar > table.calendar .year > .previous', BFHDatePicker.prototype.previousYear)
-        .on('click.bfhdatepicker.data-api touchstart.bfhdatepicker.data-api', '.bfh-datepicker-calendar > table.calendar .year > .next', BFHDatePicker.prototype.nextYear)
-        .on('click.bfhdatepicker.data-api touchstart.bfhdatepicker.data-api', '.bfh-datepicker-calendar > table.calendar td:not(.off)', BFHDatePicker.prototype.select)
-        .on('click.bfhdatepicker.data-api touchstart.bfhdatepicker.data-api', '.bfh-datepicker-calendar > table.calendar', function() { return false; });
+        .on('click.bfhdatepicker.data-mysql-api touchstart.bfhdatepicker.data-mysql-api', toggle, BFHDatePicker.prototype.toggle)
+        .on('click.bfhdatepicker.data-mysql-api touchstart.bfhdatepicker.data-mysql-api', '.bfh-datepicker-calendar > table.calendar .month > .previous', BFHDatePicker.prototype.previousMonth)
+        .on('click.bfhdatepicker.data-mysql-api touchstart.bfhdatepicker.data-mysql-api', '.bfh-datepicker-calendar > table.calendar .month > .next', BFHDatePicker.prototype.nextMonth)
+        .on('click.bfhdatepicker.data-mysql-api touchstart.bfhdatepicker.data-mysql-api', '.bfh-datepicker-calendar > table.calendar .year > .previous', BFHDatePicker.prototype.previousYear)
+        .on('click.bfhdatepicker.data-mysql-api touchstart.bfhdatepicker.data-mysql-api', '.bfh-datepicker-calendar > table.calendar .year > .next', BFHDatePicker.prototype.nextYear)
+        .on('click.bfhdatepicker.data-mysql-api touchstart.bfhdatepicker.data-mysql-api', '.bfh-datepicker-calendar > table.calendar td:not(.off)', BFHDatePicker.prototype.select)
+        .on('click.bfhdatepicker.data-mysql-api touchstart.bfhdatepicker.data-mysql-api', '.bfh-datepicker-calendar > table.calendar', function() { return false; });
 
       this.setDate();
       this.setDateLimit(this.options.min, 'lower');
@@ -14784,13 +14784,13 @@ var BFHTimezonesList = {
 
       for (day=1; day <= numDaysCurrentMonth; day=day+1) {
         if (this.checkMinDate(day, month, year)) {
-          row += '<td data-day="' + day + '" class="off">' + day + '</td>';
+          row += '<td data-mysql-day="' + day + '" class="off">' + day + '</td>';
         } else if (this.checkMaxDate(day, month, year)) {
-          row += '<td data-day="' + day + '" class="off">' + day + '</td>';
+          row += '<td data-mysql-day="' + day + '" class="off">' + day + '</td>';
         } else if (this.checkToday(day, month, year)) {
-          row += '<td data-day="' + day + '" class="today">' + day + '</td>';
+          row += '<td data-mysql-day="' + day + '" class="today">' + day + '</td>';
         } else {
-          row += '<td data-day="' + day + '">' + day + '</td>';
+          row += '<td data-mysql-day="' + day + '">' + day + '</td>';
         }
         if (getDayOfWeek(month, year, day) === (6 + BFHDayOfWeekStart) % 7) {
           $days.append('<tr>' + row + '</tr>');
@@ -15121,7 +15121,7 @@ var BFHTimezonesList = {
    * =================================== */
 
   $(document)
-    .on('click.bfhdatepicker.data-api', clearMenus);
+    .on('click.bfhdatepicker.data-mysql-api', clearMenus);
 
 }(window.jQuery);
 
@@ -15233,12 +15233,12 @@ var BFHTimezonesList = {
       $options.html('');
 
       if (this.options.blank === true) {
-        $options.append('<li><a tabindex="-1" href="#" data-option=""></a></li>');
+        $options.append('<li><a tabindex="-1" href="#" data-mysql-option=""></a></li>');
       }
 
       for (font in fonts) {
         if (fonts.hasOwnProperty(font)) {
-          $options.append('<li><a tabindex="-1" href="#" style=\'font-family: ' + fonts[font] + '\' data-option="' + font + '">' + font + '</a></li>');
+          $options.append('<li><a tabindex="-1" href="#" style=\'font-family: ' + fonts[font] + '\' data-mysql-option="' + font + '">' + font + '</a></li>');
         }
       }
 
@@ -15416,12 +15416,12 @@ var BFHTimezonesList = {
       $options.html('');
 
       if (this.options.blank === true) {
-        $options.append('<li><a tabindex="-1" href="#" data-option=""></a></li>');
+        $options.append('<li><a tabindex="-1" href="#" data-mysql-option=""></a></li>');
       }
 
       for (fontsize in fontsizes) {
         if (fontsizes.hasOwnProperty(fontsize)) {
-          $options.append('<li><a tabindex="-1" href="#" data-option="' + fontsize + '">' + fontsizes[fontsize] + '</a></li>');
+          $options.append('<li><a tabindex="-1" href="#" data-mysql-option="' + fontsize + '">' + fontsizes[fontsize] + '</a></li>');
         }
       }
 
@@ -15620,12 +15620,12 @@ var BFHTimezonesList = {
       $options.html('');
 
       if (this.options.blank === true) {
-        $options.append('<li><a tabindex="-1" href="#" data-option="" style="background-image: none;"></a></li>');
+        $options.append('<li><a tabindex="-1" href="#" data-mysql-option="" style="background-image: none;"></a></li>');
       }
 
       for (font in fonts) {
         if (fonts.hasOwnProperty(font)) {
-          $options.append('<li><a tabindex="-1" href="#" style="background-position: 0 -' + ((fonts[font].index * 30) - 2) + 'px;" data-option="' + fonts[font].info.family + '">' + fonts[font].info.family + '</a></li>');
+          $options.append('<li><a tabindex="-1" href="#" style="background-position: 0 -' + ((fonts[font].index * 30) - 2) + 'px;" data-mysql-option="' + fonts[font].info.family + '">' + fonts[font].info.family + '</a></li>');
         }
       }
 
@@ -15818,19 +15818,19 @@ var BFHTimezonesList = {
       $options.html('');
 
       if (this.options.blank === true) {
-        $options.append('<li><a tabindex="-1" href="#" data-option=""></a></li>');
+        $options.append('<li><a tabindex="-1" href="#" data-mysql-option=""></a></li>');
       }
 
       for (language in languages) {
         if (languages.hasOwnProperty(language)) {
           if (languages[language].hasOwnProperty('name')) {
             if (this.options.flags === true) {
-              $options.append('<li><a tabindex="-1" href="#" data-option="' + language + '_' + languages[language].country + '"><i class="glyphicon bfh-flag-' + languages[language].country + '"></i>' + languages[language].name.toProperCase() + '</a></li>');
+              $options.append('<li><a tabindex="-1" href="#" data-mysql-option="' + language + '_' + languages[language].country + '"><i class="glyphicon bfh-flag-' + languages[language].country + '"></i>' + languages[language].name.toProperCase() + '</a></li>');
             } else {
-              $options.append('<li><a tabindex="-1" href="#" data-option="' + language + '_' + languages[language].country + '">' + languages[language].name.toProperCase() + ' (' + BFHCountriesList[languages[language].country] + ')</a></li>');
+              $options.append('<li><a tabindex="-1" href="#" data-mysql-option="' + language + '_' + languages[language].country + '">' + languages[language].name.toProperCase() + ' (' + BFHCountriesList[languages[language].country] + ')</a></li>');
             }
           } else {
-            $options.append('<li><a tabindex="-1" href="#" data-option="' + language + '">' + languages[language] + '</a></li>');
+            $options.append('<li><a tabindex="-1" href="#" data-mysql-option="' + language + '">' + languages[language] + '</a></li>');
           }
         }
       }
@@ -15974,16 +15974,16 @@ var BFHTimezonesList = {
         this.$element.parent().append('<span class="input-group-addon bfh-number-btn dec"><span class="glyphicon glyphicon-chevron-down"></span></span>');
       }
       
-      this.$element.on('change.bfhnumber.data-api', BFHNumber.prototype.change);
+      this.$element.on('change.bfhnumber.data-mysql-api', BFHNumber.prototype.change);
         
       if (this.options.keyboard === true) {
-        this.$element.on('keydown.bfhnumber.data-api', BFHNumber.prototype.keydown);
+        this.$element.on('keydown.bfhnumber.data-mysql-api', BFHNumber.prototype.keydown);
       }
       
       if (this.options.buttons === true) {
         this.$element.parent()
-          .on('mousedown.bfhnumber.data-api', '.inc', BFHNumber.prototype.btninc)
-          .on('mousedown.bfhnumber.data-api', '.dec', BFHNumber.prototype.btndec);
+          .on('mousedown.bfhnumber.data-mysql-api', '.inc', BFHNumber.prototype.btninc)
+          .on('mousedown.bfhnumber.data-mysql-api', '.dec', BFHNumber.prototype.btndec);
       }
       
       this.formatNumber();
@@ -16286,7 +16286,7 @@ var BFHTimezonesList = {
         }
       }
       
-      this.$element.on('keyup.bfhphone.data-api', BFHPhone.prototype.change);
+      this.$element.on('keyup.bfhphone.data-mysql-api', BFHPhone.prototype.change);
 
       this.loadFormatter();
     },
@@ -16524,7 +16524,7 @@ var BFHTimezonesList = {
   /* SELECTBOX CLASS DEFINITION
    * ========================= */
 
-  var toggle = '[data-toggle=bfh-selectbox]',
+  var toggle = '[data-mysql-toggle=bfh-selectbox]',
       BFHSelectBox = function (element, options) {
         this.options = $.extend({}, $.fn.bfhselectbox.defaults, options);
         this.$element = $(element);
@@ -16541,12 +16541,12 @@ var BFHTimezonesList = {
 
       options = '';
       this.$element.find('div').each(function() {
-        options = options + '<li><a tabindex="-1" href="#" data-option="' + $(this).data('value') + '">' + $(this).html() + '</a></li>';
+        options = options + '<li><a tabindex="-1" href="#" data-mysql-option="' + $(this).data('value') + '">' + $(this).html() + '</a></li>';
       });
 
       this.$element.html(
         '<input type="hidden" name="' + this.options.name + '" value="">' +
-		'<a class="bfh-selectbox-toggle ' + this.options.input + '" role="button" data-toggle="bfh-selectbox" href="#">' +
+		'<a class="bfh-selectbox-toggle ' + this.options.input + '" role="button" data-mysql-toggle="bfh-selectbox" href="#">' +
 		'<span class="bfh-selectbox-option"></span>' +
 		'<span class="' + this.options.icon + ' selectbox-caret"></span>' +
 		'</a>' +
@@ -16567,12 +16567,12 @@ var BFHTimezonesList = {
       this.$element.val(this.options.value);
 
       this.$element
-        .on('click.bfhselectbox.data-api touchstart.bfhselectbox.data-api', toggle, BFHSelectBox.prototype.toggle)
-		.on('keydown.bfhselectbox.data-api', toggle + ', [role=option]' , BFHSelectBox.prototype.keydown)
-		.on('mouseenter.bfhselectbox.data-api', '[role=option] > li > a', BFHSelectBox.prototype.mouseenter)
-		.on('click.bfhselectbox.data-api', '[role=option] > li > a', BFHSelectBox.prototype.select)
-		.on('click.bfhselectbox.data-api', '.bfh-selectbox-filter', function () { return false; })
-		.on('propertychange.bfhselectbox.data-api change.bfhselectbox.data-api input.bfhselectbox.data-api paste.bfhselectbox.data-api', '.bfh-selectbox-filter', BFHSelectBox.prototype.filter);
+        .on('click.bfhselectbox.data-mysql-api touchstart.bfhselectbox.data-mysql-api', toggle, BFHSelectBox.prototype.toggle)
+		.on('keydown.bfhselectbox.data-mysql-api', toggle + ', [role=option]' , BFHSelectBox.prototype.keydown)
+		.on('mouseenter.bfhselectbox.data-mysql-api', '[role=option] > li > a', BFHSelectBox.prototype.mouseenter)
+		.on('click.bfhselectbox.data-mysql-api', '[role=option] > li > a', BFHSelectBox.prototype.select)
+		.on('click.bfhselectbox.data-mysql-api', '.bfh-selectbox-filter', function () { return false; })
+		.on('propertychange.bfhselectbox.data-mysql-api change.bfhselectbox.data-mysql-api input.bfhselectbox.data-mysql-api paste.bfhselectbox.data-mysql-api', '.bfh-selectbox-filter', BFHSelectBox.prototype.filter);
     },
 
     toggle: function (e) {
@@ -16601,7 +16601,7 @@ var BFHTimezonesList = {
         $parent
           .toggleClass('open')
           .trigger('shown.bfhselectbox')
-          .find('[role=option] > li > [data-option="' + $parent.val() + '"]').focus();
+          .find('[role=option] > li > [data-mysql-option="' + $parent.val() + '"]').focus();
       }
 
       return false;
@@ -16659,7 +16659,7 @@ var BFHTimezonesList = {
         return true;
       }
 
-      $('body').off('mouseenter.bfh-selectbox.data-api', '[role=option] > li > a', BFHSelectBox.prototype.mouseenter);
+      $('body').off('mouseenter.bfh-selectbox.data-mysql-api', '[role=option] > li > a', BFHSelectBox.prototype.mouseenter);
       index = $items.index($items.filter(':focus'));
 
       if (e.keyCode === 38 && index > 0) {
@@ -16675,7 +16675,7 @@ var BFHTimezonesList = {
       }
 
       $items.eq(index).focus();
-      $('body').on('mouseenter.bfh-selectbox.data-api', '[role=option] > li > a', BFHSelectBox.prototype.mouseenter);
+      $('body').on('mouseenter.bfh-selectbox.data-mysql-api', '[role=option] > li > a', BFHSelectBox.prototype.mouseenter);
     },
 
     mouseenter: function () {
@@ -16805,8 +16805,8 @@ var BFHTimezonesList = {
       if ($(el).hasClass('bfh-selectbox')) {
 
         $el = $(el);
-        if ($el.find('li a[data-option=\'' + val + '\']').length > 0) {
-          html = $el.find('li a[data-option=\'' + val + '\']').html();
+        if ($el.find('li a[data-mysql-option=\'' + val + '\']').length > 0) {
+          html = $el.find('li a[data-mysql-option=\'' + val + '\']').html();
         } else if ($el.find('li a').length > 0) {
           html = $el.find('li a').eq(0).html();
         } else {
@@ -16841,7 +16841,7 @@ var BFHTimezonesList = {
    * =================================== */
 
   $(document)
-    .on('click.bfhselectbox.data-api', clearMenus);
+    .on('click.bfhselectbox.data-mysql-api', clearMenus);
 
 }(window.jQuery);
 
@@ -16896,7 +16896,7 @@ var BFHTimezonesList = {
       this.$element.find('input[type="hidden"]').val(this.options.value);
       this.updateHandle(this.options.value);
       
-      this.$element.on('mousedown.bfhslider.data-api', BFHSlider.prototype.mouseDown);
+      this.$element.on('mousedown.bfhslider.data-mysql-api', BFHSlider.prototype.mouseDown);
     },
     
     updateHandle: function(val) {
@@ -16957,8 +16957,8 @@ var BFHTimezonesList = {
       }
       
       $(document)
-        .on('mousemove.bfhslider.data-api', {slider: $this}, BFHSlider.prototype.mouseMove)
-        .one('mouseup.bfhslider.data-api', {slider: $this}, BFHSlider.prototype.mouseUp);
+        .on('mousemove.bfhslider.data-mysql-api', {slider: $this}, BFHSlider.prototype.mouseMove)
+        .one('mouseup.bfhslider.data-mysql-api', {slider: $this}, BFHSlider.prototype.mouseUp);
     },
     
     mouseMove: function(e) {
@@ -16976,7 +16976,7 @@ var BFHTimezonesList = {
       
       $this.data('bfhslider').updateVal(e.pageX);
       
-      $(document).off('mousemove.bfhslider.data-api');
+      $(document).off('mousemove.bfhslider.data-mysql-api');
     }
   };
 
@@ -17200,12 +17200,12 @@ var BFHTimezonesList = {
       $options.html('');
 
       if (this.options.blank === true) {
-        $options.append('<li><a tabindex="-1" href="#" data-option=""></a></li>');
+        $options.append('<li><a tabindex="-1" href="#" data-mysql-option=""></a></li>');
       }
 
       for (state in BFHStatesList[country]) {
         if (BFHStatesList[country].hasOwnProperty(state)) {
-          $options.append('<li><a tabindex="-1" href="#" data-option="' + BFHStatesList[country][state].code + '">' + BFHStatesList[country][state].name + '</a></li>');
+          $options.append('<li><a tabindex="-1" href="#" data-mysql-option="' + BFHStatesList[country][state].code + '">' + BFHStatesList[country][state].name + '</a></li>');
 
           if (BFHStatesList[country][state].code === stateCode) {
             stateName = BFHStatesList[country][state].name;
@@ -17340,7 +17340,7 @@ var BFHTimezonesList = {
  /* TIMEPICKER CLASS DEFINITION
   * ========================= */
 
-  var toggle = '[data-toggle=bfh-timepicker]',
+  var toggle = '[data-mysql-toggle=bfh-timepicker]',
       BFHTimePicker = function (element, options) {
         this.options = $.extend({}, $.fn.bfhtimepicker.defaults, options);
         this.$element = $(element);
@@ -17434,15 +17434,15 @@ var BFHTimezonesList = {
       modeMax = '23';
       if (this.options.mode === '12h') {
         modeAddon = '<td>' +
-          '<div class="bfh-selectbox" data-input="' + this.options.input + '" data-value="am">' +
-          '<div data-value="am">' + BFHTimePickerModes.am + '</div>' +
-          '<div data-value="pm">' + BFHTimePickerModes.pm + '</div>' +
+          '<div class="bfh-selectbox" data-mysql-input="' + this.options.input + '" data-mysql-value="am">' +
+          '<div data-mysql-value="am">' + BFHTimePickerModes.am + '</div>' +
+          '<div data-mysql-value="pm">' + BFHTimePickerModes.pm + '</div>' +
           '</div>';
         modeMax = '11';
       }
 
       this.$element.html(
-        '<div class="' + iconAddon + ' bfh-timepicker-toggle" data-toggle="bfh-timepicker">' +
+        '<div class="' + iconAddon + ' bfh-timepicker-toggle" data-mysql-toggle="bfh-timepicker">' +
         iconLeft +
         '<input type="text" name="' + this.options.name + '" class="' + this.options.input + '" placeholder="' + this.options.placeholder + '" readonly>' +
         iconRight +
@@ -17452,11 +17452,11 @@ var BFHTimezonesList = {
         '<tbody>' +
         '<tr>' +
         '<td class="hour">' +
-        '<input type="text" class="' + this.options.input + ' bfh-number"  data-min="0" data-max="' + modeMax + '" data-zeros="true" data-wrap="true">' +
+        '<input type="text" class="' + this.options.input + ' bfh-number"  data-mysql-min="0" data-mysql-max="' + modeMax + '" data-mysql-zeros="true" data-mysql-wrap="true">' +
         '</td>' +
         '<td class="separator">' + BFHTimePickerDelimiter + '</td>' +
         '<td class="minute">' +
-        '<input type="text" class="' + this.options.input + ' bfh-number"  data-min="0" data-max="59" data-zeros="true" data-wrap="true">' +
+        '<input type="text" class="' + this.options.input + ' bfh-number"  data-mysql-min="0" data-mysql-max="59" data-mysql-zeros="true" data-mysql-wrap="true">' +
         '</td>' +
         modeAddon +
         '</tr>' +
@@ -17466,8 +17466,8 @@ var BFHTimezonesList = {
       );
 
       this.$element
-        .on('click.bfhtimepicker.data-api touchstart.bfhtimepicker.data-api', toggle, BFHTimePicker.prototype.toggle)
-        .on('click.bfhtimepicker.data-api touchstart.bfhtimepicker.data-api', '.bfh-timepicker-popover > table', function() { return false; });
+        .on('click.bfhtimepicker.data-mysql-api touchstart.bfhtimepicker.data-mysql-api', toggle, BFHTimePicker.prototype.toggle)
+        .on('click.bfhtimepicker.data-mysql-api touchstart.bfhtimepicker.data-mysql-api', '.bfh-timepicker-popover > table', function() { return false; });
 
       this.$element.find('.bfh-number').each(function () {
         var $number;
@@ -17702,7 +17702,7 @@ var BFHTimezonesList = {
    * =================================== */
 
   $(document)
-    .on('click.bfhtimepicker.data-api', clearMenus);
+    .on('click.bfhtimepicker.data-mysql-api', clearMenus);
 
 }(window.jQuery);
 
@@ -17834,12 +17834,12 @@ var BFHTimezonesList = {
       $options.html('');
 
       if (this.options.blank === true) {
-        $options.append('<li><a tabindex="-1" href="#" data-option=""></a></li>');
+        $options.append('<li><a tabindex="-1" href="#" data-mysql-option=""></a></li>');
       }
 
       for (timezone in BFHTimezonesList[country]) {
         if (BFHTimezonesList[country].hasOwnProperty(timezone)) {
-          $options.append('<li><a tabindex="-1" href="#" data-option="' + timezone + '">' + BFHTimezonesList[country][timezone] + '</a></li>');
+          $options.append('<li><a tabindex="-1" href="#" data-mysql-option="' + timezone + '">' + BFHTimezonesList[country][timezone] + '</a></li>');
         }
       }
 

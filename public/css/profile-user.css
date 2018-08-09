@@ -14,3 +14,8 @@
 .form-horizontal .submit{
     margin-top: 10px ;
 }
+
+/**/
+.list-order-review a{
+    cursor: pointer;
+}

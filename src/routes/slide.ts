@@ -35,8 +35,9 @@ class RouterSilde {
         this.router.route('/user/sign-out')
             .get( authen.signOut);
 
-        this.router.route('/user/reset-password')
-            .get(isUserLogin, user.loadUserResetPassword);
+        this.router.route('/user/reset-password/')
+            .get(isUserLogin, user.loadUserResetPassword)
+            .post(isUserLogin, authen.resetPassword);
 
         this.router.route('/user/create-password')
             .get(isUserLogin, user.loadCreatePassword);

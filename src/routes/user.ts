@@ -24,7 +24,11 @@ class RouterUser {
             .post(user.editPasswordUser);
         this.router.route('/add-password')
             .get(user.loadAddPasswordPage)
-            .post(user.addPasswordUser)
+            .post(user.addPasswordUser);
+        this.router.route('/order')
+            .get(user.loadOrderProfilePage);
+        this.router.route('/order/:orderId')
+            .get(user.loadOrderDetailProfilePage)
     }
 }
 

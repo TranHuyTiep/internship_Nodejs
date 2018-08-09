@@ -7,7 +7,7 @@ export class UserModel extends QueryMysql{
     }
 
     /**
-     * get data user
+     * get data-mysql user
      * @param {string} condition
      * @returns {Promise<any>}
      */

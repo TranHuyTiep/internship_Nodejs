@@ -1,0 +1,91 @@
+
+<%include ../header.ejs%>
+<%include ../menu.ejs%>
+<link rel="stylesheet" href="/css/profile-user.css">
+<link rel="stylesheet" href="/css/profile-user-order.css">
+
+<div id="main-content" >
+    <div class="container"  id="profile-user">
+        <%-include menu.ejs%>
+        <div class="col-sm-9 col-md-9" style="background: #ffffff; height: 100%">
+            <div class="title">
+                <h4>Hồ Sơ Của Tôi</h4>
+                <h5> Quản lý đơn hàng chi tiết</h5>
+                <hr>
+            </div>
+            <div class="content">
+                <div class=" row header-order">
+                    <div class="col-lg-6" style="border-right:1px solid">
+                        <h5><%=order[0].name%></h5>
+                        <h5><%=order[0].phone%></h5>
+                        <%=order[0].address%>
+                    </div>
+                    <div class="col-lg-6">
+                        <%for(let i = 0; i < statusOrder.length;i ++){%>
+                        <ul class="list-inline">
+                            <li><%=statusOrder[i].createAt.toLocaleString()%></li>
+                            <li> <%=statusOrder[i].status%></li>
+                        </ul>
+                        <%}%>
+                    </div>
+                </div>
+                <hr>
+                <div class=" row content-order">
+                    <div class="row">
+                        <div class="container-fluid text-center">
+                            <div class="row">
+                                <div class="col-sm-3">Tên Sản Phẩm</div>
+                                <div class="col-sm-2">Loại Sản phẩm</div>
+                                <div class="col-sm-2">Đơn Giá</div>
+                                <div class="col-sm-2">Số Lượng</div>
+                                <div class="col-sm-3">Thành Tiền</div>
+                            </div>
+                            <hr>
+                            <%for(var i = 0; i< orderDetail.length;i++){%>
+                            <div class="content-shop-cart">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <img src="/images/item_1.jpg" class="img-responsive center-block">
+                                        <h5><%=orderDetail[i].product_name%></h5>
+                                    </div>
+                                    <div class="col-sm-2"><%=orderDetail[i].classify%></div>
+                                    <div class="col-sm-2"><%=parseFloat(orderDetail[i].	price).toLocaleString()%> đ</div>
+                                    <div class="col-sm-2"><%=orderDetail[i].qty%></div>
+                                    <div class="col-sm-3"><%=parseFloat(orderDetail[i].price * orderDetail[i].qty).toLocaleString()%>  đ</div>
+                                </div>
+                            </div>
+                            <%}%>
+                            <hr>
+                            <div class="row" style="margin: 15px">
+                                <div class="col-lg-9" style="text-align: right">
+                                    <h4 > Tổng tiền</h4>
+                                    <h4 > Hình thức thanh toán</h4>
+                                </div>
+                                <div class="col-lg-3" >
+                                    <h4 style="color: red">
+                                        <%if(order[0].amount){%>
+                                        <%=parseFloat(order[0].amount).toLocaleString()%> đ
+                                        <%}else {%>
+                                        <%=0%> đ
+                                        <%}%>
+                                    </h4>
+                                    <h5 > Thanh toán khi giao hàng</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $('.list-group a').removeClass( "active" )
+    $('.panel-collapse').removeClass( "in" )
+    $('.listOrder').addClass( "active" );
+    $('.order').addClass("in");
+</script>
+
+<%include ../footer.ejs%>
