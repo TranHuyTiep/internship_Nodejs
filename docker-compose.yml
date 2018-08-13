@@ -1,7 +1,7 @@
-version: '2'
+version: '3'
 services:
   mysql:
-    image: mysql:5.6
+    image: mysql:5.7
     container_name: mysql
     ports:
       - "3306:3306"
@@ -10,13 +10,13 @@ services:
       MYSQL_DATABASE: "internship_nodejs"
       MYSQL_USER: "huytiep"
       MYSQL_PASSWORD: "123456"
-#    volumes:
-#      - ./db/mysql/data:/var/lib/mysql
+    volumes:
+      - ./data/mysql/:/docker-entrypoint-initdb.d/
   mongodb:
       image: mongo
       container_name: mongo
       ports:
-        - "27017:27017"
+        - "27000:27017"
   web:
     build:
       context: .
