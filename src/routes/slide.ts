@@ -9,7 +9,7 @@ import {home} from "../controllers/home";
 import {authen} from '../controllers/authen';
 import {productController} from "../controllers/productController";
 
-class RouterSilde {
+class RouterSlide {
     public router : Router;
 
     constructor(){
@@ -34,5 +34,5 @@ class RouterSilde {
     }
 }
 
-const routerSilde = new RouterSilde().router;
-export {routerSilde}
+const routerSlide = new RouterSlide().router;
+export {routerSlide}

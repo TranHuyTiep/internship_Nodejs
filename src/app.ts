@@ -9,7 +9,7 @@ import * as passport from 'passport'
 let config = require('../config.json');
 
 import {auth} from "./config/passport"
-import {routerSilde} from "./routes/slide"
+import {routerSlide} from "./routes/slide"
 import {routerProduct} from "./routes/product";
 import {searchServices} from "./routes/search";
 
@@ -46,7 +46,7 @@ class App{
     }
 
     private router(): void{
-        this.express.use('/shopOpen/v1/', routerSilde);
+        this.express.use('/shopOpen/v1/', routerSlide);
         this.express.use('/shopOpen/v1/products', routerProduct);
         this.express.use('/shopOpen/v1/search', searchServices);
 
