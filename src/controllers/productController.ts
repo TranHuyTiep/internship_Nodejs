@@ -22,7 +22,6 @@ class ProductController {
     }
 
     public getAllProduct(req: Request, res: Response, next: NextFunction) {
-        console.log(req.query.keyworld);
         productModel.getAllData().then(rawProducts => {
             res.status(200).send(rawProducts)
         }).catch(next)
