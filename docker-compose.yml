@@ -1,0 +1,37 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    ports:
+      - "3305:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "169614"
+      MYSQL_DATABASE: "internship_nodejs"
+      MYSQL_USER: "vietdl"
+      MYSQL_PASSWORD: "169614"
+    volumes:
+      - ./data/mysql/:/docker-entrypoint-initdb.d/
+  mongodb:
+      image: mongo
+      container_name: mongo
+      ports:
+        - "27017:27017"
+  mongo-seed:
+      image: mongo
+      links:
+        - mongodb
+      volumes:
+        - ./data/mongo/:/mongo-seed/
+      command:
+        'bash -c "mongoimport --host mongo:27017 -d internship_nodejs -c products --type json --file ./mongo-seed/products.json --jsonArray"'
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: intership
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mysql
+      - mongodb
