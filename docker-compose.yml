@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 services:
   mysql:
     image: mysql:5.7
@@ -23,8 +23,6 @@ services:
       dockerfile: Dockerfile
     container_name: intership
     working_dir: /usr/nodejs_intership
-    volumes:
-      - ./ :/usr/nodejs_intership
     ports:
       - "3000:3000"
     depends_on:

@@ -5,7 +5,7 @@
  * Time: 8:38 AM
  */
 import * as nodemailer from "nodemailer"
-let config = require('../../config.json');
+let config = require('../../../config.json');
 import {MailOpTion} from '../repository/interface'
 
 

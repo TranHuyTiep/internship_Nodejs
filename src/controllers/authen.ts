@@ -61,12 +61,12 @@ class Authen {
 
     public signIn(req: Request, res: Response, next: NextFunction){
         Passport.authenticate('signIn', (err, user, info) => {
-            if (err) {
+            if (err && user == null) {
                 res.json({err: true});
             }else {
                 req.logIn(user, function(err) {
                     if(err == null){
-                        res.json({err: false,user: {userId: user}});
+                        res.json({err: false, user: {userId: user}});
                     }else {
                         res.json({err: true});
                     }

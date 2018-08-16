@@ -9,7 +9,6 @@ import {Request, Response} from "express";
 class Home {
     public loadHomePage(req: Request, res: Response){
         let user = req.user;
-        console.log(user)
         res.render('slide/home',{user: user});
     };
 };

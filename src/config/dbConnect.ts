@@ -1,5 +1,5 @@
 import * as mysql from "mysql";
-let config = require('../../config.json');
+let config = require('../../../config.json');
 
  export class connectMysql {
     pool : mysql.Pool;
@@ -37,7 +37,7 @@ let config = require('../../config.json');
         const promise = new Promise(((resolve, reject) =>  {
             this.getConnect()
                 .then(function (connection: any) {
-                    connection.query(sql,data, function (error: Error, results: Array<object>) {
+                    connection.query(sql, data, function (error: Error, results: Array<object>) {
                         if (error){
                             connection.destroy();
                             reject(error);

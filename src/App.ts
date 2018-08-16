@@ -6,7 +6,7 @@ import * as Mongoose from "mongoose"
 import * as session from 'express-session'
 import * as passport from 'passport'
 
-let config = require('../config.json');
+let config = require('../../config.json');
 import {checkUserLogin} from "./helps/help"
 import {Authen} from "./config/passport"
 import {routerSilde} from "./routes/slide"
@@ -27,9 +27,9 @@ class App{
     private middleware(): void{
         this.express.use(bodyParser.json());
         this.express.use(bodyParser.urlencoded({extended:false}));
-        this.express.set("views", path.join(__dirname, "../views"));
+        this.express.set("views", path.join(__dirname, "../../views"));
         this.express.set("view engine", "ejs");
-        this.express.use(express.static(path.join(__dirname, '../public')));
+        this.express.use(express.static(path.join(__dirname, '../../public')));
         this.express.use(session(config.sessionOption));
         this.express.use(passport.initialize());
         this.express.use(passport.session());
@@ -45,6 +45,10 @@ class App{
     private router(): void{
         this.express.use('', routerSilde);
         this.express.use('/user/profile/',checkUserLogin, routerUser);
+        this.express.use(function (req: express.Request, res: express.Response, next) {
+            let error : Error = new Error('Not Found');
+            res.send(error.message);
+        })
     };
 }
 
@@ -64,5 +68,7 @@ app.set('port', port);
 
 const server = http.createServer(app);
 server.listen(port);
+
+export {app}
 
 

@@ -1,3 +1,9 @@
+
+$.validator.addMethod("checkStrongPass",
+    function(value, element) {
+        return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/.test(value);
+    });
+
 $(function() {
     $("#form-dang-ky").validate({
         rules: {
@@ -16,6 +22,7 @@ $(function() {
             },
             newPassword: {
                 required: true,
+                checkStrongPass:true,
                 minlength: 8
             }
         },
@@ -27,6 +34,7 @@ $(function() {
             },
             newPassword: {
                 required: "Nhập password",
+                checkStrongPass: 'Password phải tối thiểu 8 kí tự gồm ít nhất một ký tự số, một ký tự hoa và một ký tự thường!',
                 minlength: "Chiều dài tối thiểu 8 ký tự"
             },
             email: "Nhập email",
