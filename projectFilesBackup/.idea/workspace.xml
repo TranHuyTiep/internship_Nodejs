@@ -1,0 +1,888 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/docker-compose.yml" description="    volumes:&#10;      - ./db/mysql/data:/var/lib/mysq..." line="12" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="82049bd4-cdda-4273-8ca8-24df12f12dae" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/validators/login.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.dockerignore" afterPath="$PROJECT_DIR$/.dockerignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dockerfile" afterPath="$PROJECT_DIR$/Dockerfile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bash.sh" afterPath="$PROJECT_DIR$/bash.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.json" afterPath="$PROJECT_DIR$/config.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/mysql/internship_nodejs.sql" afterPath="$PROJECT_DIR$/data/mysql/internship_nodejs.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docker-compose.yml" afterPath="$PROJECT_DIR$/docker-compose.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/main.css" afterPath="$PROJECT_DIR$/public/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/order.css" afterPath="$PROJECT_DIR$/public/css/order.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/product-detail.css" afterPath="$PROJECT_DIR$/public/css/product-detail.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/profile-user-order.css" afterPath="$PROJECT_DIR$/public/css/profile-user-order.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/profile-user.css" afterPath="$PROJECT_DIR$/public/css/profile-user.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.ts" afterPath="$PROJECT_DIR$/src/App.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/config/passport.ts" afterPath="$PROJECT_DIR$/src/config/passport.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/authen.ts" afterPath="$PROJECT_DIR$/src/controllers/authen.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/home.ts" afterPath="$PROJECT_DIR$/src/controllers/home.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/user.ts" afterPath="$PROJECT_DIR$/src/controllers/user.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/helps/encryto.ts" afterPath="$PROJECT_DIR$/src/helps/encryto.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/helps/help.ts" afterPath="$PROJECT_DIR$/src/helps/help.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/helps/sendMail.ts" afterPath="$PROJECT_DIR$/src/helps/sendMail.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/category.ts" afterPath="$PROJECT_DIR$/src/models/category.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/inforUser.ts" afterPath="$PROJECT_DIR$/src/models/inforUser.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/login.ts" afterPath="$PROJECT_DIR$/src/models/login.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/models.ts" afterPath="$PROJECT_DIR$/src/models/models.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/order.ts" afterPath="$PROJECT_DIR$/src/models/order.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/orderDetail.ts" afterPath="$PROJECT_DIR$/src/models/orderDetail.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/product.ts" afterPath="$PROJECT_DIR$/src/models/product.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/rate.ts" afterPath="$PROJECT_DIR$/src/models/rate.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/statusOrder.ts" afterPath="$PROJECT_DIR$/src/models/statusOrder.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/verify.ts" afterPath="$PROJECT_DIR$/src/models/verify.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/repository/category/schemal.ts" afterPath="$PROJECT_DIR$/src/repository/category/schemal.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/repository/interface.ts" afterPath="$PROJECT_DIR$/src/repository/interface.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/repository/product/schemal.ts" afterPath="$PROJECT_DIR$/src/repository/product/schemal.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/repository/rate/schemal.ts" afterPath="$PROJECT_DIR$/src/repository/rate/schemal.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/slide.ts" afterPath="$PROJECT_DIR$/src/routes/slide.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/user.ts" afterPath="$PROJECT_DIR$/src/routes/user.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tsconfig.json" afterPath="$PROJECT_DIR$/tsconfig.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/slide/footer.ejs" afterPath="$PROJECT_DIR$/views/slide/footer.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/slide/header.ejs" afterPath="$PROJECT_DIR$/views/slide/header.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/slide/home.ejs" afterPath="$PROJECT_DIR$/views/slide/home.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/slide/menu.ejs" afterPath="$PROJECT_DIR$/views/slide/menu.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/slide/user/active.ejs" afterPath="$PROJECT_DIR$/views/slide/user/active.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/slide/user/add_pass.ejs" afterPath="$PROJECT_DIR$/views/slide/user/add_pass.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/slide/user/edit_pass.ejs" afterPath="$PROJECT_DIR$/views/slide/user/edit_pass.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/slide/user/login.ejs" afterPath="$PROJECT_DIR$/views/slide/user/login.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/slide/user/menu.ejs" afterPath="$PROJECT_DIR$/views/slide/user/menu.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/slide/user/new_password.ejs" afterPath="$PROJECT_DIR$/views/slide/user/new_password.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/slide/user/order.ejs" afterPath="$PROJECT_DIR$/views/slide/user/order.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/slide/user/order_detail.ejs" afterPath="$PROJECT_DIR$/views/slide/user/order_detail.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/slide/user/profile.ejs" afterPath="$PROJECT_DIR$/views/slide/user/profile.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/slide/user/reset_password.ejs" afterPath="$PROJECT_DIR$/views/slide/user/reset_password.ejs" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <expand />
+    <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="internship" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Dockerfile" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dockerfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="256">
+              <caret line="16" column="19" lean-forward="false" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="15" column="39" lean-forward="false" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/validators/login.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="96">
+              <caret line="6" column="35" lean-forward="true" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Ejs" />
+        <option value="ejs" />
+        <option value="JavaScript File" />
+        <option value="tsconfig.json" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>interface</find>
+      <find>image</find>
+      <find>Xem chi tiết</find>
+      <find>fa-</find>
+      <find>sea</find>
+      <find>submit-dang-nha</find>
+      <find>im</find>
+      <find>ShopOpen</find>
+      <find>/user/sign-in</find>
+      <find>logo</find>
+      <find>user/sign-up</find>
+      <find>/user/sign-up</find>
+      <find>signInFaceBook</find>
+      <find>submit-dang-nhap</find>
+      <find>btn-dang-nhap-facebook</find>
+      <find>te</find>
+      <find>img</find>
+      <find>console</find>
+      <find>quen-mk</find>
+      <find>click-quen-mk</find>
+      <find>consol</find>
+      <find>#modal-cart</find>
+      <find>modal-cart</find>
+    </findStrings>
+    <dirStrings>
+      <dir>C:\Users\Tran Huy Tiep\Desktop\internship\internship\views\slide\user</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RESET_MODE" value="MIXED" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/helps/help.ts" />
+        <option value="$PROJECT_DIR$/views/slide/user/user_login.ejs" />
+        <option value="$PROJECT_DIR$/src/helps/encryto.ts" />
+        <option value="$PROJECT_DIR$/src/config/dbConnect.ts" />
+        <option value="$PROJECT_DIR$/src/models/product.ts" />
+        <option value="$PROJECT_DIR$/views/slide/user/forgotPass.ejs" />
+        <option value="$PROJECT_DIR$/views/slide/user/forgetPass.ejs" />
+        <option value="$PROJECT_DIR$/views/slide/user/new_password.ejs" />
+        <option value="$PROJECT_DIR$/src/models/login.ts" />
+        <option value="$PROJECT_DIR$/src/controllers/home.ts" />
+        <option value="$PROJECT_DIR$/src/models/models.ts" />
+        <option value="$PROJECT_DIR$/views/slide/home.ejs" />
+        <option value="$PROJECT_DIR$/views/slide/user/address.ejs" />
+        <option value="$PROJECT_DIR$/views/slide/user/edit_pass.ejs" />
+        <option value="$PROJECT_DIR$/src/models/inforUser.ts" />
+        <option value="$PROJECT_DIR$/views/slide/user/profile.ejs" />
+        <option value="$PROJECT_DIR$/views/slide/user/add_pass.ejs" />
+        <option value="$PROJECT_DIR$/views/slide/user/menu.ejs" />
+        <option value="$PROJECT_DIR$/public/css/profile-user.css" />
+        <option value="$PROJECT_DIR$/src/models/order.ts" />
+        <option value="$PROJECT_DIR$/src/repository/interface.ts" />
+        <option value="$PROJECT_DIR$/views/slide/user/order.ejs" />
+        <option value="$PROJECT_DIR$/public/javascripts/main.js" />
+        <option value="$PROJECT_DIR$/src/models/orderDetail.ts" />
+        <option value="$PROJECT_DIR$/src/routes/user.ts" />
+        <option value="$PROJECT_DIR$/src/models/infor_order.ts" />
+        <option value="$PROJECT_DIR$/src/models/inforOrder.ts" />
+        <option value="$PROJECT_DIR$/src/models/statusInfor.ts" />
+        <option value="async_hooks.js" />
+        <option value="$PROJECT_DIR$/src/models/statusOrder.ts" />
+        <option value="$PROJECT_DIR$/src/controllers/user.ts" />
+        <option value="$PROJECT_DIR$/views/slide/user/order_detail.ejs" />
+        <option value="$PROJECT_DIR$/dist/config/passport.js" />
+        <option value="$PROJECT_DIR$/src/config/passport.ts" />
+        <option value="$PROJECT_DIR$/src/helps/sendMail.ts" />
+        <option value="$PROJECT_DIR$/src/controllers/authen.ts" />
+        <option value="$PROJECT_DIR$/src/routes/slide.ts" />
+        <option value="$PROJECT_DIR$/views/slide/user/reset_password.ejs" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/bash.sh" />
+        <option value="$PROJECT_DIR$/views/slide/menu.ejs" />
+        <option value="$PROJECT_DIR$/views/slide/header.ejs" />
+        <option value="$PROJECT_DIR$/data/db/internship_nodejs.sql" />
+        <option value="$PROJECT_DIR$/config.json" />
+        <option value="$PROJECT_DIR$/data/mycustom.cnf" />
+        <option value="$PROJECT_DIR$/docker-compose.yml" />
+        <option value="$PROJECT_DIR$/src/App.ts" />
+        <option value="$PROJECT_DIR$/src/validators/login.ts" />
+        <option value="$PROJECT_DIR$/tsconfig.json" />
+        <option value="$PROJECT_DIR$/.dockerignore" />
+        <option value="$PROJECT_DIR$/Dockerfile" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBowerSettings">
+    <node-interpreter value="project" />
+    <exe-path />
+    <config-path />
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
+    <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <annotation-enable>false</annotation-enable>
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1323" />
+    <option name="height" value="736" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>AngularJS</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="internship" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internship" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="ts.external.directory.path" value="C:\Users\Tran Huy Tiep\Desktop\internship\internship\node_modules\typescript\lib" />
+    <property name="typescript-compiler-editor-notification" value="false" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Tran Huy Tiep\Desktop\internship\internship\data" />
+      <recent name="C:\Users\Tran Huy Tiep\Desktop\internship\internship\db\mysql" />
+      <recent name="C:\Users\Tran Huy Tiep\Desktop\internship\internship\src\models" />
+      <recent name="C:\Users\Tran Huy Tiep\Desktop\internship\internship\views\slide\user" />
+      <recent name="C:\Users\Tran Huy Tiep\Desktop\internship\internship\public" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Tran Huy Tiep\Desktop\internship\internship\views\slide\user" />
+      <recent name="C:\Users\Tran Huy Tiep\Desktop\internship\internship\src\config" />
+      <recent name="C:\Users\Tran Huy Tiep\Desktop\internship\internship\src\helps" />
+      <recent name="C:\Users\Tran Huy Tiep\Desktop\internship\internship\views\users" />
+      <recent name="C:\Users\Tran Huy Tiep\Desktop\internship\internship\src\repository" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Docker Deployment.Docker Deployment">
+    <configuration name="App.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-node="project" path-to-js-file="App.js" working-dir="$PROJECT_DIR$/dist" />
+    <configuration name="Docker Deployment" type="docker-deploy" factoryName="Docker Deployment" server-name="Docker">
+      <deployment type="docker-compose.yml" path="$PROJECT_DIR$/docker-compose.yml">
+        <settings>
+          <option name="JSONFilePath" value="" />
+          <option name="command" value="" />
+          <option name="entrypoint" value="" />
+          <option name="startBrowserSettings">
+            <browser url="http://127.0.0.1" />
+          </option>
+        </settings>
+      </deployment>
+    </configuration>
+    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="sourceFilePath" value="Dockerfile" />
+          <option name="startBrowserSettings">
+            <browser url="http://127.0.0.1" />
+          </option>
+        </settings>
+      </deployment>
+    </configuration>
+    <configuration name="login.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-node="project" path-to-js-file="login.js" working-dir="$PROJECT_DIR$/dist/models" />
+    <configuration name="role.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-node="project" path-to-js-file="role.js" working-dir="$PROJECT_DIR$/dist/models" />
+    <configuration name="schemal.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-node="project" path-to-js-file="schemal.js" working-dir="$PROJECT_DIR$/dist/repository/product" />
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Docker Deployment.Docker Deployment" />
+      <item index="1" class="java.lang.String" itemvalue="Node.js.App.js" />
+      <item index="2" class="java.lang.String" itemvalue="Node.js.schemal.js" />
+      <item index="3" class="java.lang.String" itemvalue="Node.js.role.js" />
+      <item index="4" class="java.lang.String" itemvalue="Node.js.login.js" />
+    </list>
+    <recent_temporary>
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Node.js.App.js" />
+        <item index="1" class="java.lang.String" itemvalue="Node.js.login.js" />
+        <item index="2" class="java.lang.String" itemvalue="Node.js.role.js" />
+        <item index="3" class="java.lang.String" itemvalue="Node.js.schemal.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="82049bd4-cdda-4273-8ca8-24df12f12dae" name="Default" comment="" />
+      <created>1532189965724</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1532189965724</updated>
+      <workItem from="1532189967402" duration="1673000" />
+      <workItem from="1532256423588" duration="2175000" />
+      <workItem from="1532263360920" duration="8004000" />
+      <workItem from="1532284138220" duration="22609000" />
+      <workItem from="1532482149422" duration="1454000" />
+      <workItem from="1532591779551" duration="7019000" />
+      <workItem from="1532605398966" duration="1509000" />
+      <workItem from="1532613919636" duration="36000" />
+      <workItem from="1532665461312" duration="17386000" />
+      <workItem from="1532750049405" duration="6855000" />
+      <workItem from="1532872584057" duration="2819000" />
+      <workItem from="1532912072498" duration="63221000" />
+      <workItem from="1533086783518" duration="31704000" />
+      <workItem from="1533175607644" duration="26655000" />
+      <workItem from="1533216967404" duration="583000" />
+      <workItem from="1533219596580" duration="2926000" />
+      <workItem from="1533224861719" duration="124000" />
+      <workItem from="1533226573274" duration="2109000" />
+      <workItem from="1533228839293" duration="628000" />
+      <workItem from="1533260557248" duration="158000" />
+      <workItem from="1533261657701" duration="518000" />
+      <workItem from="1533262195952" duration="14000" />
+      <workItem from="1533262222604" duration="80000" />
+      <workItem from="1533262344250" duration="86000" />
+      <workItem from="1533262464864" duration="533000" />
+      <workItem from="1533263009889" duration="17455000" />
+      <workItem from="1533285654291" duration="138000" />
+      <workItem from="1533285882482" duration="171000" />
+      <workItem from="1533306313038" duration="290000" />
+      <workItem from="1533348793277" duration="74000" />
+      <workItem from="1533452889625" duration="197000" />
+      <workItem from="1533453126479" duration="10994000" />
+      <workItem from="1533480669143" duration="3426000" />
+      <workItem from="1533484610627" duration="101000" />
+      <workItem from="1533485687540" duration="200000" />
+      <workItem from="1533519187838" duration="176000" />
+      <workItem from="1533519560067" duration="26512000" />
+      <workItem from="1533551137228" duration="497000" />
+      <workItem from="1533605671240" duration="120000" />
+      <workItem from="1533605813035" duration="383000" />
+      <workItem from="1533606199475" duration="15570000" />
+      <workItem from="1533691925091" duration="2640000" />
+      <workItem from="1533695593684" duration="18328000" />
+      <workItem from="1533724398723" duration="112000" />
+      <workItem from="1533727113455" duration="14312000" />
+      <workItem from="1533776996775" duration="14333000" />
+      <workItem from="1533805077912" duration="10318000" />
+      <workItem from="1533820038505" duration="12123000" />
+      <workItem from="1533864560017" duration="20778000" />
+      <workItem from="1533896575943" duration="796000" />
+      <workItem from="1533901047803" duration="3410000" />
+      <workItem from="1533950081766" duration="4235000" />
+      <workItem from="1533980271961" duration="24646000" />
+      <workItem from="1534063560623" duration="4704000" />
+      <workItem from="1534072915630" duration="1335000" />
+      <workItem from="1534074691285" duration="1808000" />
+      <workItem from="1534124090116" duration="9826000" />
+      <workItem from="1534141339896" duration="2050000" />
+      <workItem from="1534144326610" duration="234000" />
+      <workItem from="1534210353757" duration="674000" />
+      <workItem from="1534213052044" duration="6544000" />
+    </task>
+    <task id="LOCAL-00001" summary="demo">
+      <created>1532191466956</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1532191466956</updated>
+    </task>
+    <task id="LOCAL-00002" summary="v1">
+      <created>1532273745892</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1532273745893</updated>
+    </task>
+    <task id="LOCAL-00003" summary="v1">
+      <created>1532273783330</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1532273783331</updated>
+    </task>
+    <task id="LOCAL-00004" summary="v1">
+      <created>1532285485718</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1532285485718</updated>
+    </task>
+    <task id="LOCAL-00005" summary="authen">
+      <created>1532331037025</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1532331037025</updated>
+    </task>
+    <task id="LOCAL-00006" summary="authen">
+      <created>1532591843167</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1532591843167</updated>
+    </task>
+    <task id="LOCAL-00007" summary="xu ly dang ky, tao model product,">
+      <created>1533056079954</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1533056079954</updated>
+    </task>
+    <task id="LOCAL-00008" summary="edit code, va login facebook">
+      <created>1533261907308</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1533261907308</updated>
+    </task>
+    <task id="LOCAL-00009" summary="them trang profile cho user">
+      <created>1533484267279</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1533484267279</updated>
+    </task>
+    <task id="LOCAL-00010" summary="file docker">
+      <created>1533790246037</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1533790246037</updated>
+    </task>
+    <task id="LOCAL-00011" summary="file docker">
+      <created>1533807556003</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1533807556004</updated>
+    </task>
+    <task id="LOCAL-00012" summary="file docker">
+      <created>1534124317841</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1534124317842</updated>
+    </task>
+    <task id="LOCAL-00013" summary="file docker">
+      <created>1534124342727</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1534124342727</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="443083000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="25" width="1366" height="696" extended-state="6" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.52566373" sideWeight="0.5060606" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32743362" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41118422" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39823008" sideWeight="0.48257574" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32743362" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18787879" sideWeight="0.4804878" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4761062" sideWeight="0.4939394" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23524962" sideWeight="0.5195122" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41118422" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3930921" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22163388" sideWeight="0.48916408" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21255673" sideWeight="0.5108359" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
+    <MESSAGE value="demo" />
+    <MESSAGE value="v1" />
+    <MESSAGE value="authen" />
+    <MESSAGE value="xu ly dang ky, tao model product," />
+    <MESSAGE value="edit code, va login facebook" />
+    <MESSAGE value="them trang profile cho user" />
+    <MESSAGE value="file docker" />
+    <option name="LAST_COMMIT_MESSAGE" value="file docker" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="75" />
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="NodeJSConfigurationType">
+        <watch expression="userModel" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/public/javascripts/main.js" />
+    <entry file="file://$PROJECT_DIR$/src/models/tsconfig.json" />
+    <entry file="file://$PROJECT_DIR$/views/slide/user/profile.ejs" />
+    <entry file="file://$PROJECT_DIR$/src/models/statusInfor.ts" />
+    <entry file="file://$PROJECT_DIR$/node_modules/mysql/lib/protocol/sequences/ChangeUser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="28" column="48" lean-forward="false" selection-start-line="28" selection-start-column="2" selection-end-line="28" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/controllers/user.js" />
+    <entry file="file://$PROJECT_DIR$/views/slide/user/order.ejs" />
+    <entry file="file://$PROJECT_DIR$/src/models/order.ts" />
+    <entry file="file://$PROJECT_DIR$/src/models/statusOrder.ts" />
+    <entry file="file://$PROJECT_DIR$/views/slide/user/order_detail.ejs" />
+    <entry file="file://$PROJECT_DIR$/node_modules/@types/passport/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1696">
+          <caret line="41" column="26" lean-forward="true" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/config/passport.js" />
+    <entry file="file://$PROJECT_DIR$/src/models/verify.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="8" column="37" lean-forward="true" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/repository/rate/schemal.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-431">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/helps/encryto.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/helps/sendMail.js" />
+    <entry file="file://$PROJECT_DIR$/src/helps/help.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-176">
+          <caret line="33" column="16" lean-forward="false" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/models.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="42" column="17" lean-forward="false" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/repository/interface.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="10" lean-forward="false" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/helps/sendMail.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="41" column="90" lean-forward="true" selection-start-line="41" selection-start-column="90" selection-end-line="41" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/user.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="23" column="41" lean-forward="true" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/slide.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="38" column="50" lean-forward="false" selection-start-line="38" selection-start-column="50" selection-end-line="38" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/user.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/slide/user/reset_password.ejs" />
+    <entry file="file://$PROJECT_DIR$/src/controllers/authen.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="90" column="79" lean-forward="false" selection-start-line="90" selection-start-column="79" selection-end-line="90" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/App.js" />
+    <entry file="file://$PROJECT_DIR$/src/models/category.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="7" lean-forward="true" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config/passport.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/orderDetail.ts" />
+    <entry file="file://$PROJECT_DIR$/dist/config/dbConnect.js" />
+    <entry file="file://$PROJECT_DIR$/db/mysql/internship_nodejs.sql" />
+    <entry file="file://$PROJECT_DIR$/db/mysql/mysql-data/sys/db.opt" />
+    <entry file="file://$PROJECT_DIR$/db/mysql/data/catt/db.opt" />
+    <entry file="file://$PROJECT_DIR$/views/slide/user/menu.ejs" />
+    <entry file="file://$PROJECT_DIR$/views/slide/menu.ejs" />
+    <entry file="file://$PROJECT_DIR$/views/slide/header.ejs" />
+    <entry file="file://$PROJECT_DIR$/data/Dockerfile" />
+    <entry file="file://$PROJECT_DIR$/data/mysql/internship_nodejs.sql" />
+    <entry file="file://$PROJECT_DIR$/data/config.cnf" />
+    <entry file="file://$PROJECT_DIR$/src/config/dbConnect.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="52" column="12" lean-forward="true" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bash.sh" />
+    <entry file="file://$PROJECT_DIR$/ecosystem.config.js" />
+    <entry file="file://$PROJECT_DIR$/config.json" />
+    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="46" column="70" lean-forward="false" selection-start-line="46" selection-start-column="70" selection-end-line="46" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.dockerignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tsconfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-153">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="15" column="39" lean-forward="false" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="16" column="19" lean-forward="false" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/validators/login.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="6" column="35" lean-forward="true" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="Copyright.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

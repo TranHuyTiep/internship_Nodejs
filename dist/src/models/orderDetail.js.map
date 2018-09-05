@@ -1,0 +1,1 @@
+{"version":3,"file":"orderDetail.js","sourceRoot":"","sources":["../../../src/models/orderDetail.ts"],"names":[],"mappings":";;AAAA,qCAAmC;AAEnC,sBAA8B,SAAQ,mBAAU;IAC5C,YAAY,KAAa;QACrB,KAAK,CAAC,KAAK,CAAC,CAAA;IAChB,CAAC;CACJ;AAJD,4CAIC;AAAA,CAAC;AAEF,IAAI,gBAAgB,GAAG,IAAI,gBAAgB,CAAC,kBAAkB,CAAC,CAAC;AAExD,4CAAgB"}
